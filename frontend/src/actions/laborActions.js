@@ -28,7 +28,7 @@ export const newLabor = (laborData) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.post(`/api/v1/labor/new`, laborData, config)
+        const { data } = await axios.post(`https://pakrealconstruction.herokuapp.com/api/v1/labor/new`, laborData, config)
 
         dispatch({
             type: NEW_LABOR_SUCCESS,
@@ -49,7 +49,7 @@ export const getLaborDetails = (id) => async (dispatch) => {
 
         dispatch({ type: LABOR_DETAILS_REQUEST })
 
-        const { data } = await axios.get(`/api/v1/labord/${id}`)
+        const { data } = await axios.get(`https://pakrealconstruction.herokuapp.com/api/v1/labord/${id}`)
 
         dispatch({
             type: LABOR_DETAILS_SUCCESS,
@@ -75,7 +75,7 @@ export const newLaborReview = (reviewDatalb) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.put(`/api/v1/reviewlb`, reviewDatalb, config)
+        const { data } = await axios.put(`https://pakrealconstruction.herokuapp.com/api/v1/reviewlb`, reviewDatalb, config)
         console.log(data)
         dispatch({
             type: NEW_REVIEW_SUCCESS,
@@ -98,7 +98,7 @@ export const getVehicleReviews = (id) => async (dispatch) => {
 
         dispatch({ type: GET_REVIEWS_REQUEST })
 
-        const { data } = await axios.get(`/api/v1/reviewslb?id=${id}`)
+        const { data } = await axios.get(`https://pakrealconstruction.herokuapp.com/api/v1/reviewslb?id=${id}`)
 
         dispatch({
             type: GET_REVIEWS_SUCCESS,
@@ -119,7 +119,7 @@ export const deleteReview = (id, laborId) => async (dispatch) => {
 
         dispatch({ type: DELETE_REVIEW_REQUEST })
 
-        const { data } = await axios.delete(`/api/v1/reviewslb?id=${id}&laborId=${laborId}`)
+        const { data } = await axios.delete(`https://pakrealconstruction.herokuapp.com/api/v1/reviewslb?id=${id}&laborId=${laborId}`)
 
         dispatch({
             type: DELETE_REVIEW_SUCCESS,

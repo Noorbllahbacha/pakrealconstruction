@@ -28,7 +28,7 @@ export const newVehicle = (vehicleData) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.post(`/api/v1/vehicle/new`, vehicleData, config)
+        const { data } = await axios.post(`https://pakrealconstruction.herokuapp.com/api/v1/vehicle/new`, vehicleData, config)
 
         dispatch({
             type: NEW_VEHICLE_SUCCESS,
@@ -47,7 +47,7 @@ export const getVehicleDetails = (id) => async (dispatch) => {
 
         dispatch({ type: VEHICLE_DETAILS_REQUEST })
 
-        const { data } = await axios.get(`/api/v1/vehicled/${id}`)
+        const { data } = await axios.get(`https://pakrealconstruction.herokuapp.com/api/v1/vehicled/${id}`)
 
         dispatch({
             type: VEHICLE_DETAILS_SUCCESS,
@@ -73,7 +73,7 @@ export const newVehicleReview = (reviewDatavh) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.put(`/api/v1/reviewvh`, reviewDatavh, config)
+        const { data } = await axios.put(`https://pakrealconstruction.herokuapp.com/api/v1/reviewvh`, reviewDatavh, config)
         console.log(data)
         dispatch({
             type: NEW_REVIEW_SUCCESS,
@@ -96,7 +96,7 @@ export const getVehicleReviews = (id) => async (dispatch) => {
 
         dispatch({ type: GET_REVIEWS_REQUEST })
 
-        const { data } = await axios.get(`/api/v1/reviewsvh?id=${id}`)
+        const { data } = await axios.get(`https://pakrealconstruction.herokuapp.com/api/v1/reviewsvh?id=${id}`)
 
         dispatch({
             type: GET_REVIEWS_SUCCESS,
@@ -117,7 +117,7 @@ export const deleteReview = (id, vehicleId) => async (dispatch) => {
 
         dispatch({ type: DELETE_REVIEW_REQUEST })
 
-        const { data } = await axios.delete(`/api/v1/reviewsvh?id=${id}&vehicleId=${vehicleId}`)
+        const { data } = await axios.delete(`https://pakrealconstruction.herokuapp.com/api/v1/reviewsvh?id=${id}&vehicleId=${vehicleId}`)
 
         dispatch({
             type: DELETE_REVIEW_SUCCESS,

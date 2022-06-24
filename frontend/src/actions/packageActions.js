@@ -38,10 +38,10 @@ export const getPacks = (keyword = '', currentPage = 1, price, category, rating 
 
         dispatch({ type: ALL_PACKS_REQUEST })
 
-        let link = `/api/v1/packs?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&ratings[gte]=${rating}`
+        let link = `https://pakrealconstruction.herokuapp.com/api/v1/packs?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&ratings[gte]=${rating}`
 
         if (category) {
-            link = `/api/v1/packs?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&category=${category}&ratings[gte]=${rating}`
+            link = `https://pakrealconstruction.herokuapp.com/api/v1/packs?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&category=${category}&ratings[gte]=${rating}`
         }
 
         const { data } = await axios.get(link)
@@ -70,7 +70,7 @@ export const newPack = (packData) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.post(`/api/v1/admin/pack/new`, packData, config)
+        const { data } = await axios.post(`https://pakrealconstruction.herokuapp.com/api/v1/admin/pack/new`, packData, config)
 
         dispatch({
             type: NEW_PACK_SUCCESS,
@@ -91,7 +91,7 @@ export const deletePack = (id) => async (dispatch) => {
 
         dispatch({ type: DELETE_PACK_REQUEST })
 
-        const { data } = await axios.delete(`/api/v1/admin/pack/${id}`)
+        const { data } = await axios.delete(`https://pakrealconstruction.herokuapp.com/api/v1/admin/pack/${id}`)
 
         dispatch({
             type: DELETE_PACK_SUCCESS,
@@ -118,7 +118,7 @@ export const updatePack = (id, packData) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.put(`/api/v1/admin/pack/${id}`, packData, config)
+        const { data } = await axios.put(`https://pakrealconstruction.herokuapp.com/api/v1/admin/pack/${id}`, packData, config)
 
         dispatch({
             type: UPDATE_PACK_SUCCESS,
@@ -138,7 +138,7 @@ export const getPackDetails = (id) => async (dispatch) => {
 
         dispatch({ type: PACK_DETAILS_REQUEST })
 
-        const { data } = await axios.get(`/api/v1/pack/${id}`)
+        const { data } = await axios.get(`https://pakrealconstruction.herokuapp.com/api/v1/pack/${id}`)
 
         dispatch({
             type: PACK_DETAILS_SUCCESS,
@@ -164,7 +164,7 @@ export const newReview = (reviewDatapk) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.put(`/api/v1/reviewpk`, reviewDatapk, config)
+        const { data } = await axios.put(`https://pakrealconstruction.herokuapp.com/api/v1/reviewpk`, reviewDatapk, config)
 
         dispatch({
             type: NEW_REVIEW_SUCCESS,
@@ -185,7 +185,7 @@ export const getAdminPacks = () => async (dispatch) => {
 
         dispatch({ type: ADMIN_PACKS_REQUEST })
 
-        const { data } = await axios.get(`/api/v1/admin/packs`)
+        const { data } = await axios.get(`https://pakrealconstruction.herokuapp.com/api/v1/admin/packs`)
 
         dispatch({
             type: ADMIN_PACKS_SUCCESS,
@@ -207,7 +207,7 @@ export const getPackReviews = (id) => async (dispatch) => {
 
         dispatch({ type: GET_REVIEWS_REQUEST })
 
-        const { data } = await axios.get(`/api/v1/reviewspk?id=${id}`)
+        const { data } = await axios.get(`https://pakrealconstruction.herokuapp.com/api/v1/reviewspk?id=${id}`)
 
         dispatch({
             type: GET_REVIEWS_SUCCESS,
@@ -229,7 +229,7 @@ export const deleteReview = (id, packId) => async (dispatch) => {
 
         dispatch({ type: DELETE_REVIEW_REQUEST })
 
-        const { data } = await axios.delete(`/api/v1/reviewspk?id=${id}&packId=${packId}`)
+        const { data } = await axios.delete(`https://pakrealconstruction.herokuapp.com/api/v1/reviewspk?id=${id}&packId=${packId}`)
 
         dispatch({
             type: DELETE_REVIEW_SUCCESS,

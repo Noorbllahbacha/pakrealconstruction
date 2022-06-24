@@ -46,7 +46,7 @@ export const getVideos = (keyword = '', currentPage = 1,numOfDays, rating = 0) =
         // let link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&
         // price[gte]=${price[0]}&ratings[gte]=${rating}`
 
-        let link = `/api/v1/videos?keyword=${keyword}&page=${currentPage}&numOfDays[lte]=${numOfDays[1]}&
+        let link = `https://pakrealconstruction.herokuapp.com/api/v1/videos?keyword=${keyword}&page=${currentPage}&numOfDays[lte]=${numOfDays[1]}&
         numOfDays[gte]=${numOfDays[0]}&ratings[gte]=${rating}`
         // if (category) {
         //     link = `/api/v1/videos?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}`
@@ -78,7 +78,7 @@ export const newVideo = (videoData) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.post(`/api/v1/admin/video/new`, videoData, config)
+        const { data } = await axios.post(`https://pakrealconstruction.herokuapp.com/api/v1/admin/video/new`, videoData, config)
 
         dispatch({
             type: NEW_VIDEO_SUCCESS,
@@ -99,7 +99,7 @@ export const deleteVideo = (id) => async (dispatch) => {
 
         dispatch({ type: DELETE_VIDEO_REQUEST })
 
-        const { data } = await axios.delete(`/api/v1/admin/video/${id}`)
+        const { data } = await axios.delete(`https://pakrealconstruction.herokuapp.com/api/v1/admin/video/${id}`)
 
         dispatch({
             type: DELETE_VIDEO_SUCCESS,
@@ -126,7 +126,7 @@ export const updateVideo = (id, videoData) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.put(`/api/v1/admin/video/${id}`, videoData, config)
+        const { data } = await axios.put(`https://pakrealconstruction.herokuapp.com/api/v1/admin/video/${id}`, videoData, config)
 
         dispatch({
             type: UPDATE_VIDEO_SUCCESS,
@@ -146,7 +146,7 @@ export const getVideoDetails = (id) => async (dispatch) => {
 
         dispatch({ type: VIDEO_DETAILS_REQUEST })
 
-        const { data } = await axios.get(`/api/v1/video/${id}`)
+        const { data } = await axios.get(`https://pakrealconstruction.herokuapp.com/api/v1/video/${id}`)
 
         dispatch({
             type: VIDEO_DETAILS_SUCCESS,
@@ -193,7 +193,7 @@ export const getAdminVideos = () => async (dispatch) => {
 
         dispatch({ type: ADMIN_VIDEOS_REQUEST })
 
-        const { data } = await axios.get(`/api/v1/admin/videos`)
+        const { data } = await axios.get(`https://pakrealconstruction.herokuapp.com/api/v1/admin/videos`)
 
         dispatch({
             type: ADMIN_VIDEOS_SUCCESS,
@@ -266,7 +266,7 @@ export const newVideoReview = (reviewDatavd) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.put(`/api/v1/reviewvd`, reviewDatavd, config)
+        const { data } = await axios.put(`https://pakrealconstruction.herokuapp.com/api/v1/reviewvd`, reviewDatavd, config)
         console.log(data)
         dispatch({
             type: NEW_REVIEW_SUCCESS,
@@ -289,7 +289,7 @@ export const getVideoReviews = (id) => async (dispatch) => {
 
         dispatch({ type: GET_REVIEWS_REQUEST })
 
-        const { data } = await axios.get(`/api/v1/reviewsvd?id=${id}`)
+        const { data } = await axios.get(`https://pakrealconstruction.herokuapp.com/api/v1/reviewsvd?id=${id}`)
 
         dispatch({
             type: GET_REVIEWS_SUCCESS,
@@ -310,7 +310,7 @@ export const deleteReview = (id, videoId) => async (dispatch) => {
 
         dispatch({ type: DELETE_REVIEW_REQUEST })
 
-        const { data } = await axios.delete(`/api/v1/reviewsvd?id=${id}&videoId=${videoId}`)
+        const { data } = await axios.delete(`https://pakrealconstruction.herokuapp.com/api/v1/reviewsvd?id=${id}&videoId=${videoId}`)
 
         dispatch({
             type: DELETE_REVIEW_SUCCESS,

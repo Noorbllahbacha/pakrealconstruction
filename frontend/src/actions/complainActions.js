@@ -29,7 +29,7 @@ export const newComplain = (complainData) => async (dispatch) => {
                 'Content-Type': 'multipart/form-data'
             }
         }
-        const { data } = await axios.post('/api/v1/newComplain', complainData, config)
+        const { data } = await axios.post('https://pakrealconstruction.herokuapp.com/api/v1/newComplain', complainData, config)
         dispatch({
             type: NEW_COMPLAIN_SUCCESS,
             payload: data.complain
@@ -47,7 +47,7 @@ export const newComplain = (complainData) => async (dispatch) => {
 export const getComplain = () => async (dispatch) => {
     try {    
         dispatch({ type: ALL_COMPLAINS_REQUEST })
-        const { data } = await axios.get('/api/v1/admin/allComplain')
+        const { data } = await axios.get('https://pakrealconstruction.herokuapp.com/api/v1/admin/allComplain')
         dispatch({
             type: ALL_COMPLAINS_SUCCESS,
             payload: data.complains
@@ -68,7 +68,7 @@ export const deleteComplain=(id)=>async(dispatch)=>
 
         dispatch({ type: DELETE_COMPLAIN_REQUEST })
 
-        const { data } = await axios.delete(`/api/v1/delete/${id}`)
+        const { data } = await axios.delete(`https://pakrealconstruction.herokuapp.com/api/v1/delete/${id}`)
 
         dispatch({
             type: DELETE_COMPLAIN_SUCCESS,
