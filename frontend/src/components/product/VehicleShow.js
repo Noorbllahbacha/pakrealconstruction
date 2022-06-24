@@ -72,7 +72,7 @@ const VehicleShow = () => {
   const [vehicleData, setVehicleData] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/api/v1/vehicles`)
+      .get(`https://pakrealconstruction.herokuapp.com/api/v1/vehicles`)
       .then((response) => {
         if (response.data.success) setVehicleData(response.data.vehiles);
       })

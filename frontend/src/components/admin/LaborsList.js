@@ -9,7 +9,7 @@ const LaborsList = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/v1/admin/labors")
+      .get("https://pakrealconstruction.herokuapp.com/api/v1/admin/labors")
       .then((response) => {
         if (response.data.success) setLabourData(response.data.labors);
       })

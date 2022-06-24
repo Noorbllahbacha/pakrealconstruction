@@ -12,7 +12,7 @@ const UpdateLabor = () => {
   const updateLaborInfo = (e)=>{
     e.preventDefault();
     axios
-		  .patch(`http://localhost:4000/api/v1/admin/labor/${id}`, laborData)
+		  .patch(`https://pakrealconstruction.herokuapp.com/api/v1/admin/labor/${id}`, laborData)
 		  .then((response) => {
 			 if(response.data.success)
        setUpdateStatus(true);
@@ -27,7 +27,7 @@ const UpdateLabor = () => {
 
   useEffect(()=>{
 		axios
-		  .get(`http://localhost:4000/api/v1/labor/${id}`)
+		  .get(`https://pakrealconstruction.herokuapp.com/api/v1/labor/${id}`)
 		  .then((response) => {
 			if(response.data.success)
 			setLabourData(response.data.labor)

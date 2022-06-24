@@ -42,7 +42,7 @@ const ConfirmOrder = ({ history }) => {
     const applyCoupon = (e)=>{
         e.preventDefault();
             axios
-              .post(`http://localhost:4000/api/v1/verifyCoupon`, {name: couponCode})
+              .post(`https://pakrealconstruction.herokuapp.com/api/v1/verifyCoupon`, {name: couponCode})
               .then((response) => {
                 if(response.data.success)
                 {   

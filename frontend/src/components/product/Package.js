@@ -73,7 +73,7 @@ const Package = () => {
 
   useEffect(()=>{
 		axios
-		  .get(`http://localhost:4000/api/v1/packs`)
+		  .get(`https://pakrealconstruction.herokuapp.com/api/v1/packs`)
 		  .then((response) => {
 			if(response.data.success)
 			setPackData(response.data.packs)

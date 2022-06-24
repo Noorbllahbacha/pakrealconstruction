@@ -13,7 +13,7 @@ const NewCoupon = () => {
     e.preventDefault();
     console.log("handel create new coupon");
     axios
-      .post("http://localhost:4000/api/v1/admin/coupon/new", couponData)
+      .post("https://pakrealconstruction.herokuapp.com/api/v1/admin/coupon/new", couponData)
       .then((response) => {
         if (response.data.success) console.log("coupon::", response.data);
       })

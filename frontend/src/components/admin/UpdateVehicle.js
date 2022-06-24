@@ -12,7 +12,7 @@ const NewVehicle = () => {
   const updateLaborInfo = (e) => {
     e.preventDefault();
     axios
-      .patch(`http://localhost:4000/api/v1/admin/vehicle/${id}`, vehicleData)
+      .patch(`https://pakrealconstruction.herokuapp.com/api/v1/admin/vehicle/${id}`, vehicleData)
       .then((response) => {
         if (response.data.success) setUpdateStatus(true);
 
@@ -26,7 +26,7 @@ const NewVehicle = () => {
   useEffect(() => {
     console.log("component mounted");
     axios
-      .get(`http://localhost:4000/api/v1/vehicle/${id}`)
+      .get(`https://pakrealconstruction.herokuapp.com/api/v1/vehicle/${id}`)
       .then((response) => {
         if (response.data.success) setVehicleData(response.data.vehicle);
       })

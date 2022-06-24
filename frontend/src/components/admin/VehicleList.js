@@ -9,7 +9,7 @@ const VehicleList = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/v1/admin/vehicles")
+      .get("https://pakrealconstruction.herokuapp.com/api/v1/admin/vehicles")
       .then((response) => {
         if (response.data.success) setVehicleData(response.data.vehicles);
       })

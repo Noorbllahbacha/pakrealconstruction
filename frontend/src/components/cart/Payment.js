@@ -74,7 +74,7 @@ const Payment = ({ history }) => {
                 }
             }
 
-            res = await axios.post('/api/v1/payment/process', paymentData, config)
+            res = await axios.post('https://pakrealconstruction.herokuapp.com/api/v1/payment/process', paymentData, config)
 
             const clientSecret = res.data.client_secret;
 

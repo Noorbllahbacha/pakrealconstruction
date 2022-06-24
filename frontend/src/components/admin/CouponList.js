@@ -10,7 +10,7 @@ const CouponList = () => {
     e.preventDefault();
     console.log("handle delete id:", id);
     axios
-      .delete(`http://localhost:4000/api/v1/admin/coupon/${id}`)
+      .delete(`https://pakrealconstruction.herokuapp.com/api/v1/admin/coupon/${id}`)
       .then((response) => {
         if (response.data.success) console.log("coupon deleted sucessfully");
       })
@@ -21,7 +21,7 @@ const CouponList = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/v1/coupons")
+      .get("https://pakrealconstruction.herokuapp.com/api/v1/coupons")
       .then((response) => {
         if (response.data.success) setCouponData(response.data.coupons);
       })
