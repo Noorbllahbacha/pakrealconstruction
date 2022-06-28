@@ -387,7 +387,7 @@ const VideoDetails = ({ match }) => {
                         </div>
 
                         <div className="col-12 col-lg-5 mt-5">
-                            <h3>{video.name}</h3>
+                            <h3><b>{video.name}</b></h3>
                             <p id="product_id">Video # {video._id}</p>
 
                             <hr />
@@ -399,7 +399,7 @@ const VideoDetails = ({ match }) => {
 
                             <hr />
 
-                            <p id="product_price">{video.numOfDays}</p>
+                            {/* <p id="product_price">{video.numOfDays}</p> */}
                             {/* <div className="stockCounter d-inline">
                                 <span className="btn btn-danger minus" onClick={decreaseQty}>-</span>
 
@@ -409,15 +409,22 @@ const VideoDetails = ({ match }) => {
                             </div> */}
                             {/* <button type="button" id="cart_btn" className="btn btn-primary d-inline ml-4" disabled={product.stock === 0} onClick={addToCart}>Add to Cart</button> */}
 
-                            <hr />
+                            {/* <hr /> */}
 
                             {/* <p>Status: <span id="stock_status" className={product.stock > 0 ? 'greenColor' : 'redColor'} >{product.stock > 0 ? 'In Stock' : 'Out of Stock'}</span></p>
 
                             <hr /> */}
 
                             <h4 className="mt-2">Description:</h4>
-                            <p>{video.description}</p>
+                            <p>{video.description}</p><br></br>
                             <hr />
+                            <label><b>Project Start Date  :&#160; &nbsp; &#160; &nbsp;</b>{video.projStartDate}</label><br></br>
+                            <label><b>Number Of Days Spend :&#160;</b>{video.numOfDays}</label>
+                            <hr />
+                            <h4 className="mt-2">Contact Info:</h4>
+                            <label><b>Phone# :&#160; &nbsp;</b>051-536356434</label>
+                            <br></br>
+                            <label><b>Email@ :&#160; &nbsp;</b><b>info.pakrealconstruction@gmail.com</b></label>
                             {/* <p id="product_seller mb-3">Sold by: <strong>{video.seller}</strong></p> */}
 
                             {user ? <button id="review_btn" type="button" className="btn btn-primary mt-4" 
