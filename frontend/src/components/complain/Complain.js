@@ -1,4 +1,4 @@
-  
+
 import React, { useEffect, useState } from "react";
 import {  Link ,Route} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
@@ -43,7 +43,8 @@ const Complain=({history})=>
             formData.set('email', email);
             formData.set('phone', phone);
             formData.set('complaint', complaint);
-           dispatch(newComplain(formData))
+           dispatch(newComplain(formData));
+           alert.success("You have successfully complaint")
     }
     const onChange = e => {
         setComplain({ ...complain, [e.target.name]: e.target.value })
@@ -53,11 +54,11 @@ const Complain=({history})=>
             <div className=".contact-form">
                 <div className=".container">
                     <div className="row">
-                        <div className="col-lg-10 offset-lg-1">
-                            <div className="contact-form-container py-5">
+                        <div className="col-lg-8 offset-lg-1">
+                            <div className="contact-form-container ">
                             <form  method="POST"  id="contact-form"  onSubmit={submitHandler} encType='multipart/form-data'>
-                                <h1 className="mb-3">Complain</h1>
-                                    <div className="contact-form-name d-flex justify-content-between align-items-between">
+                                <h1 className="mb-5 mt-5 text-center text-primary mr-5"><b>Complaint</b></h1>
+                                    <div className=" d-flex justify-content-between ">
                     <input type="name" 
                                         name="name" 
                                         id="name"
@@ -84,22 +85,38 @@ const Complain=({history})=>
                                         <br/>
                                     </div>
                                     <br/>
-                    <textarea id="complaint" cols="127" rows="10" 
+                                    <div className="d-sm-inline-flex">
+                    <textarea id="complaint" cols="84" rows="5" 
                                           name="complaint"
                                            value={complaint}
                                            onChange={onChange}         
                                         // onChange={(e)=>setComplaint(e.target.value)}          
-                                              placeholder="Message"></textarea> 
-                                <button
-                            id="register_button"
-                            type="submit"
-                            className="btn btn-block py-3"
-                        >
-                            Submit
-                        </button>
+                                              placeholder="Complaint"></textarea>
+                                              <div className=" col-lg-2">
+ <h1 className="text-danger ml-5 text-center"><b>Note</b></h1>
+ <p className="text-center">Your&#160;complaint&#160;first&#160;line&#160;should&#160;contain&#160;
+                    the&#160;&#160;main&#160;&#160;objective&#160;of&#160;&#160;your&#160;complaint.&#160;
+                    We&#160;&#160;will&#160;&#160;respond&#160;&#160;back&#160;&#160;on&#160;your&#160;given&#160;
+                    email&#160;or&#160;&#160;mobile&#160;number&#160;,so&#160;&#160;be&#160;careful&#160;
+                    while&#160;providing&#160;your&#160;required&#160;&#160;details.</p>
+ <hr/>
+ <label><b>Phone#&nbsp;</b>0315538320</label>
+                       <br></br>
+                         <label><b>Email@: </b>info.pakrealconstruction@gmail.com</label>
+                         <hr/>
+</div>
+                                             
+                                             </div>
+                                                                 <div class="text-center mt-2">
+     <button id="register_button" type="submit" class="btn btn-primary " 
+     
+   >Submit</button>
+  </div>
                             </form>
                             </div>
                         </div>
+                         
+                        
                     </div>
                 </div>
             </div>
