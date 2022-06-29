@@ -26,7 +26,7 @@ const NewVehicle = () => {
   useEffect(() => {
     console.log("component mounted");
     axios
-      .get(`https://pakrealconstruction.herokuapp.com/api/v1/vehicle/${id}`)
+      .get(`http://localhost:4000/api/v1/vehicle/${id}`)
       .then((response) => {
         if (response.data.success) setVehicleData(response.data.vehicle);
       })
@@ -51,6 +51,10 @@ const NewVehicle = () => {
                   <label htmlFor="name_field">Vehicle Name</label>
                   <input
                     type="text"
+                    minlength="5"
+                          maxLength="40"
+                          required
+                          pattern='[a-zA-Z][a-zA-Z ]+[a-zA-Z]$'
                     id="name_field"
                     className="form-control"
                     value={vehicleData?.name}
@@ -63,6 +67,7 @@ const NewVehicle = () => {
                   <label htmlFor="price_field">Owner Name</label>
                   <input
                     type="text"
+                required
                     id="price_field"
                     className="form-control"
                     value={vehicleData?.ownerName}
@@ -74,14 +79,15 @@ const NewVehicle = () => {
                     }}
                   />
                 </div>
-                {/* <div className="form-group">
+                <div className="form-group">
       <label htmlFor="description_field">Description</label>
-      <textarea className="form-control" id="description_field" rows={8} defaultValue={""} value={vehicleData?.ownerName} onChange={(e)=>{setVehicleData({...vehicleData, ownerName: e.target.value})}}/>
-    </div> */}
+      <textarea className="form-control" id="description_field" rows={2} defaultValue={""} value={vehicleData?.engineNo} onChange={(e)=>{setVehicleData({...vehicleData, engineNo: e.target.value})}}/>
+    </div>
                 <div classname="form-group">
                   <label htmlFor="name_field">Year of manufacture</label>
                   <input
                     type="number"
+                    min='4'
                     id="name_field"
                     classname="form-control"
                     value={vehicleData?.yearOfManufacture}
@@ -94,9 +100,12 @@ const NewVehicle = () => {
                   />
                 </div>
                 <div classname="form-group">
-                  <label htmlFor="price_field">Color</label>
+                  <label htmlFor="price_field">Contact#</label>
                   <input
                     type="text"
+                    required
+                    min='10000000000'
+                    pattern="[0-9]{11}"
                     id="price_field"
                     classname="form-control"
                     value={vehicleData?.color}
@@ -109,6 +118,8 @@ const NewVehicle = () => {
                   <label htmlFor="stock_field">chasis Number</label>
                   <input
                     type="number"
+                    required
+                    
                     id="stock_field"
                     className="form-control"
                     value={vehicleData?.chasisNumber}
@@ -120,7 +131,7 @@ const NewVehicle = () => {
                     }}
                   />
                 </div>
-                <div classname="form-group">
+                {/* <div classname="form-group">
                   <label htmlFor="name_field">Engine No</label>
                   <input
                     type="text"
@@ -134,11 +145,13 @@ const NewVehicle = () => {
                       });
                     }}
                   />
-                </div>
+                </div> */}
                 <div className="form-group">
                   <label htmlFor="seller_field">Registeration Date</label>
                   <input
                     type="date"
+                    
+                    required
                     id="seller_field"
                     className="form-control"
                     value={vehicleData?.regDate}
@@ -155,6 +168,8 @@ const NewVehicle = () => {
                   <div className="custom-file">
                     <input
                       type="file"
+                      
+                            accept="image/png, image/jpg, image/jpeg"
                       name="product_images"
                       className="custom-file-input"
                       id="customFile"

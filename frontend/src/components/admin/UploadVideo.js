@@ -10,7 +10,7 @@ const UploadVideo = ({history}) => {
 
   // const [title, setTitle] = useState('');
   const [name, setName] = useState('');
-   const [numOfDays, setNumOfDays] = useState(0);
+   const [numOfDays, setNumOfDays] = useState('');
    const [projStartDate, setProjStartDate] = useState('');
   const [description, setDescription] = useState('');
   // const [category, setCategory] = useState('');
@@ -107,7 +107,11 @@ const UploadVideo = ({history}) => {
             <div class="form-group">
               <label for="name_field">Project Title</label>
               <input
-                type="text"
+                 type="text"
+                 minlength="5"
+                 maxLength="40"
+                 required
+                 pattern='[a-zA-Z][a-zA-Z ]+[a-zA-Z]$'
                 id="name_field"
                 class="form-control"
                 value={name}
@@ -118,7 +122,10 @@ const UploadVideo = ({history}) => {
             <div class="form-group">
                 <label for="price_field">Number of days</label>
                 <input
-                  type="text"
+                  type="number"
+                  min="1"
+                  max="1000000"
+                  required
                   id="price_field"
                   class="form-control"
                   value={numOfDays}
@@ -130,7 +137,9 @@ const UploadVideo = ({history}) => {
               <div class="form-group">
                 <label for="stock_field">Project Start Date</label>
                 <input
-                  type="text"
+                  type="date"
+                  min="2000-04-01" max="2022-06-28" 
+                  required
                   id="stock_field"
                   class="form-control"
                   value={projStartDate}
@@ -143,7 +152,8 @@ const UploadVideo = ({history}) => {
               <div class="form-group">
                 <label for="description_field">Description</label>
                 <textarea class="form-control" id="description_field" rows="8" 
-                value={description} 
+                value={description}
+                required 
                 onChange={(e) => setDescription(e.target.value)} ></textarea>
               </div>
 
@@ -155,6 +165,8 @@ const UploadVideo = ({history}) => {
                     <div class='custom-file'>
                         <input
                             type='file'
+                            required
+                            accept="video/mp4,video/x-m4v,video/*"
                             name='product_images'
                             class='custom-file-input'
                             id='customFile'

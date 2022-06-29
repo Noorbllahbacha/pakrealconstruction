@@ -2,6 +2,7 @@ import React, { Fragment, useState } from "react";
 import MetaData from "../layout/MetaData";
 import Sidebar from "./Sidebar";
 import axios from "axios";
+import { useAlert } from 'react-alert'
 
 const NewCoupon = () => {
   const [couponData, setCouponData] = useState({
@@ -9,13 +10,20 @@ const NewCoupon = () => {
     expiry: "",
     discount: "",
   });
+
+  const alert = useAlert();
   const createNewCoupon = (e) => {
     e.preventDefault();
     console.log("handel create new coupon");
     axios
       .post("https://pakrealconstruction.herokuapp.com/api/v1/admin/coupon/new", couponData)
       .then((response) => {
-        if (response.data.success) console.log("coupon::", response.data);
+        if (response.data.success) {console.log("coupon::", response.data);
+        alert.success('Coupon created successfully');
+        if (error) {
+          alert.error(error);
+      }
+      }
       })
       .catch((error) => {
         console.log(error);
@@ -39,7 +47,11 @@ const NewCoupon = () => {
                 <div class="form-group">
                   <label for="name_field">Name</label>
                   <input
-                    type="text"
+                   type="text"
+                   minlength="5"
+                   maxLength="40"
+                   required
+                   pattern='[a-zA-Z][a-zA-Z ]+[a-zA-Z]$' 
                     id="name_field"
                     class="form-control"
                     value={couponData.name}
@@ -52,7 +64,10 @@ const NewCoupon = () => {
                 <div class="form-group">
                   <label for="price_field">Discount %</label>
                   <input
-                    type="number"
+                     type="number"
+                     min="1"
+                     max="1000000"
+                     required
                     id="price_field"
                     class="form-control"
                     value={couponData.discount}
@@ -69,6 +84,8 @@ const NewCoupon = () => {
                   <label for="price_field">Expiry Date</label>
                   <input
                     type="date"
+                    min="2000-04-01" max="2022-06-28" 
+                    required
                     id="price_field"
                     class="form-control"
                     value={couponData.expiry}

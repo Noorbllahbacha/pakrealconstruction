@@ -1,9 +1,11 @@
 import React, { Fragment, useState, useEffect } from "react";
 import MetaData from '../layout/MetaData'
+import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import {newVehicle} from '../../actions/vehicleActions'
 
 const Vehicle = () => {
+  const alert=useAlert();
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     name: "",
@@ -65,6 +67,10 @@ const Vehicle = () => {
               <label for="name_field"> Name</label>
               <input
                 type="text"
+                minlength="5"
+                      maxLength="40"
+                      required
+                      pattern='[a-zA-Z][a-zA-Z ]+[a-zA-Z]$'
                 id="name_field"
                 className="form-control"
                 value={formData.name}
@@ -77,6 +83,7 @@ const Vehicle = () => {
               <label for="name_field">Reg No</label>
               <input
                 type="text"
+                required
                 id="name_field"
                 className="form-control"
                 value={formData.regNo}
@@ -85,7 +92,7 @@ const Vehicle = () => {
                       }}
               />
             </div>
-            <div className="form-group">
+            {/* <div className="form-group">
               <label for="name_field">Engine No</label>
               <input
                 type="text"
@@ -97,11 +104,25 @@ const Vehicle = () => {
                       }}
               />
               
-            </div>
+            </div> */}
+            <div className="form-group">
+                    <label for="description_field">Work Description</label>
+                    <textarea
+                      className="form-control"
+                      id="description_field"
+                      required
+                      rows="2"
+                      value={formData.engineNo}
+                      onChange={(e) => {
+                        setFormData({ ...formData, engineNo: e.target.value });
+                      }}
+                    ></textarea>
+                  </div>
             <div className="form-group">
               <label for="name_field">Registeration Date</label>
               <input
                 type="date"
+                required
                 id="name_field"
                 className="form-control"
                 value={formData.regDate}
@@ -114,6 +135,8 @@ const Vehicle = () => {
               <label for="name_field">Year of manufacture</label>
               <input
                 type="text"
+                pattern="[0-9]{4}"
+                required
                 id="name_field"
                 className="form-control"
                 value={formData.yearOfManufacture}
@@ -124,9 +147,12 @@ const Vehicle = () => {
             </div>
 
             <div className="form-group">
-                <label for="price_field">Color</label>
+                <label for="price_field">Contact#</label>
                 <input
                   type="text"
+                  required
+                  min='1000000000000'
+                  pattern="[0-9]{11}"
                   id="price_field"
                   className="form-control"
                   value={formData.color}
@@ -141,6 +167,9 @@ const Vehicle = () => {
                 <label for="stock_field"> chasis Number</label>
                 <input
                   type="number"
+                  required
+                  max='2022'
+                  min='1950'
                   id="stock_field"
                   className="form-control"
                   value={formData.chasisNumber}
@@ -154,6 +183,10 @@ const Vehicle = () => {
                 <label for="seller_field">Owner Name</label>
                 <input
                   type="text"
+                  minlength="5"
+                  maxLength="40"
+                  required
+                  pattern='[a-zA-Z][a-zA-Z ]+[a-zA-Z]$'
                   id="seller_field"
                   className="form-control"
                   value={formData.ownerName}
@@ -166,6 +199,11 @@ const Vehicle = () => {
                 <label for="seller_field">Owner City</label>
                 <input
                   type="text"
+                 
+                      minlength="5"
+                      maxLength="40"
+                      required
+                      pattern='[a-zA-Z][a-zA-Z ]+[a-zA-Z]$'
                   id="seller_field"
                   className="form-control"
                   value={formData.ownerCity}
@@ -178,6 +216,8 @@ const Vehicle = () => {
                 <label for="seller_field">Owner CNIC</label>
                 <input
                   type="text"
+                  min='100000000000000'
+                       pattern="[0-9]{13}" required
                   id="seller_field"
                   className="form-control"
                   value={formData.ownerCnic}
@@ -193,7 +233,8 @@ const Vehicle = () => {
                     <div className='custom-file'>
                         <input
                             type='file'
-                            name='product_images'
+                            name='product_images'required
+                            accept="image/png, image/jpg, image/jpeg"
                             className='custom-file-input'
                             id='customFile'
                             multiple
@@ -214,6 +255,7 @@ const Vehicle = () => {
               class="btn btn-block py-2"
               onClick={(e) => {
                 registerVehicle(e);
+                alert.success("You have successfully requested")
               }}
             >
               CREATE

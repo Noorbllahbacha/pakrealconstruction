@@ -11,11 +11,11 @@ import { NEW_PRODUCT_RESET } from '../../constants/productConstants'
 const NewProduct = ({ history }) => {
 
     const [name, setName] = useState('');
-    const [price, setPrice] = useState(0);
+    const [price, setPrice] = useState('');
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
-    const [stock, setStock] = useState(0);
-    const [seller, setSeller] = useState('');
+    const [stock, setStock] = useState('');
+    // const [seller, setSeller] = useState('');
     const [images, setImages] = useState([]);
     const [imagesPreview, setImagesPreview] = useState([])
 
@@ -64,7 +64,7 @@ const NewProduct = ({ history }) => {
         formData.set('description', description);
         formData.set('category', category);
         formData.set('stock', stock);
-        formData.set('seller', seller);
+        // formData.set('seller', seller);
 
         images.forEach(image => {
             formData.append('images', image)
@@ -113,6 +113,10 @@ const NewProduct = ({ history }) => {
                                     <label htmlFor="name_field">Name</label>
                                     <input
                                         type="text"
+                                        minlength="5"
+                                        maxLength="40"
+                                        required
+                                        pattern='[a-zA-Z][a-zA-Z ]+[a-zA-Z]$'
                                         id="name_field"
                                         className="form-control"
                                         value={name}
@@ -123,7 +127,10 @@ const NewProduct = ({ history }) => {
                                 <div className="form-group">
                                     <label htmlFor="price_field">Price</label>
                                     <input
-                                        type="text"
+                                        type="number"
+                                        min="1"
+                                        max="1000000"
+                                        required
                                         id="price_field"
                                         className="form-control"
                                         value={price}
@@ -133,12 +140,12 @@ const NewProduct = ({ history }) => {
 
                                 <div className="form-group">
                                     <label htmlFor="description_field">Description</label>
-                                    <textarea className="form-control" id="description_field" rows="4" value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
+                                    <textarea className="form-control" id="description_field" required rows="4" value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
                                 </div>
 
                                 <div className="form-group">
                                     <label htmlFor="category_field">Category</label>
-                                    <select className="form-control" id="category_field" value={category} onChange={(e) => setCategory(e.target.value)}>
+                                    <select className="form-control" id="category_field" required value={category} onChange={(e) => setCategory(e.target.value)}>
                                         {categories.map(category => (
                                             <option key={category} value={category} >{category}</option>
                                         ))}
@@ -148,7 +155,10 @@ const NewProduct = ({ history }) => {
                                 <div className="form-group">
                                     <label htmlFor="stock_field">Stock</label>
                                     <input
-                                        type="number"
+                                       type="number"
+                                       min="1"
+                                       max="1000000"
+                                       required
                                         id="stock_field"
                                         className="form-control"
                                         value={stock}
@@ -156,7 +166,7 @@ const NewProduct = ({ history }) => {
                                     />
                                 </div>
 
-                                <div className="form-group">
+                                {/* <div className="form-group">
                                     <label htmlFor="seller_field">Seller Name</label>
                                     <input
                                         type="text"
@@ -165,7 +175,7 @@ const NewProduct = ({ history }) => {
                                         value={seller}
                                         onChange={(e) => setSeller(e.target.value)}
                                     />
-                                </div>
+                                </div> */}
 
                                 <div className='form-group'>
                                     <label>Images</label>
@@ -173,6 +183,8 @@ const NewProduct = ({ history }) => {
                                     <div className='custom-file'>
                                         <input
                                             type='file'
+                                            required
+                                            accept="image/png, image/jpg, image/jpeg"
                                             name='product_images'
                                             className='custom-file-input'
                                             id='customFile'
@@ -195,7 +207,7 @@ const NewProduct = ({ history }) => {
                                     id="login_button"
                                     type="submit"
                                     className="btn btn-block py-3"
-                                    disabled={loading ? true : false}
+                                   // disabled={loading ? true : false}
                                 >
                                     CREATE
                                 </button>

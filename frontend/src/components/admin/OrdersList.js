@@ -1,4 +1,3 @@
-
 import React, { Fragment, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { MDBDataTable } from 'mdbreact'
@@ -75,7 +74,7 @@ const OrdersList = ({ history }) => {
             data.rows.push({
                 id: order._id,
                 numofItems: order.orderItems.length,
-                amount: `$${order.totalPrice}`,
+                amount: `Rs.${order.totalPrice}`,
                 status: order.orderStatus && String(order.orderStatus).includes('Delivered')
                     ? <p style={{ color: 'green' }}>{order.orderStatus}</p>
                     : <p style={{ color: 'red' }}>{order.orderStatus}</p>,

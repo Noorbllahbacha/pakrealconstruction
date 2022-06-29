@@ -34,7 +34,7 @@ const VediosList = ({history}) => {
 
         if (isDeleted) {
             alert.success('Video deleted successfully');
-            history.push('/admin/videos');
+            history.push('/admin/vedeos');
             dispatch({ type: DELETE_VIDEO_RESET })
         }
 
@@ -81,10 +81,10 @@ const VediosList = ({history}) => {
 
                 </Fragment>,
                 name: video.name,
-                numOfDays: `$${video.numOfDays}`,
+                numOfDays: `${video.numOfDays}`,
                 projStartDate: video.projStartDate,
                 actions: <Fragment>
-                    <Link to={`/admin/video/${video._id}`} className="btn btn-primary py-1 px-2">
+                    <Link to={`/admin/vedeos/${video._id}`} className="btn btn-primary py-1 px-2">
                         <i className="fa fa-pencil"></i>
                     </Link>
                     <button className="btn btn-danger py-1 px-2 ml-2" onClick={() => deleteVideoHandler(video._id)}>

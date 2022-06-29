@@ -76,7 +76,7 @@ const PackagesList = ({ history }) => {
                 id: pack._id,
                 marla: pack.numberofmarla,
                 squarefoot: pack.estimatedsquarefoot,
-                price: `$${pack.totalprice}`,
+                price: `Rs.${pack.totalprice}`,
                 actions: <Fragment>
                     <Link to={`/admin/pack/${pack._id}`} className="btn btn-primary py-1 px-2">
                         <i className="fa fa-pencil"></i>

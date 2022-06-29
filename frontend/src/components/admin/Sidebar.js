@@ -24,33 +24,23 @@ const Sidebar = () => {
                         </ul>
                     </li>
 
-                    <li>
-                        <a href="#laborSubmenu" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">
-                        <i className="fa fa-male"></i> Labors</a>
-                        <ul className="collapse list-unstyled" id="laborSubmenu">
+                   
+                       
+                       
                         
                         <li>
-                                <Link to="/admin/labors"><i className="fa fa-clipboard"></i> All</Link>
+                                <Link to="/admin/labors"><i className="fa fa-male"></i> Labors</Link>
                             </li>
-                            <li>
-                                <Link to="/admin/newlabor"><i className="fa fa-plus"></i> Create</Link>
-                            </li>
-                        </ul>
-                    </li>
+                    
+                    
 
-                    <li>
-                        <a href="#vehicleSubmenu" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle" >
-                        <i className="fa fa-truck"></i> Vehicles</a>
-                        <ul className="collapse list-unstyled" id="vehicleSubmenu">
+                   
                         <li>
-                                <Link to="/admin/vehicles"><i className="fa fa-clipboard"></i> All</Link>
+                                <Link to="/admin/vehicles"><i className="fa fa-truck"></i> Vehicles</Link>
                             </li>
-                            <li>
-                                <Link to="/admin/newvehicle"><i className="fa fa-plus"></i> Create</Link>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
+                            
+                        
+                   <li>
                         <a href="#packageSubmenu" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle" >
                         <i className="fa fa-envelope-square"></i> Packages</a>
                         <ul className="collapse list-unstyled" id="packageSubmenu">

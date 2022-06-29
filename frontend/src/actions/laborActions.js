@@ -1,6 +1,8 @@
 import axios from 'axios';
 
 import {LABOR_REGISTOR_REQUEST,
+    NEW_LABOR_SUCCESS,
+   NEW_LABOR_FAIL ,
     LABOR_DETAILS_REQUEST,
     LABOR_DETAILS_SUCCESS,
     LABOR_DETAILS_FAIL,
@@ -10,6 +12,16 @@ import {LABOR_REGISTOR_REQUEST,
     GET_REVIEWS_REQUEST,
     GET_REVIEWS_SUCCESS,
     GET_REVIEWS_FAIL,
+
+    DELETE_LABOR_REQUEST,
+    DELETE_LABOR_SUCCESS,
+    DELETE_LABOR_FAIL,
+
+
+    ADMIN_LABOR_REQUEST,
+    ADMIN_LABOR_SUCCESS,
+    ADMIN_LABOR_FAIL,
+
     DELETE_REVIEW_REQUEST,
     DELETE_REVIEW_SUCCESS,
     DELETE_REVIEW_RESET,
@@ -37,19 +49,40 @@ export const newLabor = (laborData) => async (dispatch) => {
 
     } catch (error) {
         dispatch({
-            type: NEW_LABOR_FAIL,
+            // type: NEW_LABOR_FAIL,
             payload: error.response.data.message
         })
     }
 }
 
+// Delete Complains
+
+export const deleteLabor=(id)=>async(dispatch)=>
+{
+    try{
+
+        dispatch({ type: DELETE_LABOR_REQUEST })
+
+        const { data } = await axios.delete(`https://pakrealconstruction.herokuapp.com/api/v1/admin/labor/${id}`)
+
+        dispatch({
+            type: DELETE_LABOR_SUCCESS,
+            payload: data.success
+        })
+    }catch (error) {
+        dispatch({
+            type: DELETE_LABOR_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
 
 export const getLaborDetails = (id) => async (dispatch) => {
     try {
 
         dispatch({ type: LABOR_DETAILS_REQUEST })
 
-        const { data } = await axios.get(`https://pakrealconstruction.herokuapp.com/api/v1/labord/${id}`)
+        const { data } = await axios.get(`https://pakrealconstruction.herokuapp.com/api/v1/labor/${id}`)
 
         dispatch({
             type: LABOR_DETAILS_SUCCESS,
@@ -113,6 +146,7 @@ export const getVehicleReviews = (id) => async (dispatch) => {
         })
     }
 }
+
 // Delete product review
 export const deleteReview = (id, laborId) => async (dispatch) => {
     try {
@@ -142,4 +176,26 @@ export const clearErrors = () => async (dispatch) => {
     dispatch({
         type: CLEAR_ERRORS
     })
+}
+
+
+export const getAdminLabors = () => async (dispatch) => {
+    try {
+
+        dispatch({ type: ADMIN_LABOR_REQUEST })
+
+        const { data } = await axios.get(`https://pakrealconstruction.herokuapp.com/api/v1/admin/labors`)
+
+        dispatch({
+            type: ADMIN_LABOR_SUCCESS,
+            payload: data.videos
+        })
+
+    } catch (error) {
+
+        dispatch({
+            type: ADMIN_LABOR_FAIL,
+            // payload: error.response.data.message
+        })
+    }
 }

@@ -51,7 +51,11 @@ const Login = ({ history, location }) => {
                                 <div className="form-group">
                                     <label htmlFor="email_field">Email</label>
                                     <input
-                                        type="email"
+                                       type="email"
+                                       required
+                                       title="Contact's email (format: xxx@xxx.xxx)" 
+                                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,}$"
+                                       placeholder="Contact's email" 
                                         id="email_field"
                                         className="form-control"
                                         value={email}
@@ -64,6 +68,7 @@ const Login = ({ history, location }) => {
                                     <input
                                         type="password"
                                         id="password_field"
+                                        required
                                         className="form-control"
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}

@@ -2,6 +2,11 @@ import {
     VEHICLE_DETAILS_REQUEST,
     VEHICLE_DETAILS_SUCCESS,
     VEHICLE_DETAILS_FAIL,
+
+    DELETE_VEHICLE_REQUEST,
+    DELETE_VEHICLE_SUCCESS,
+    DELETE_VEHICLE_FAIL,
+    DELETE_VEHICLE_RESET,
     NEW_REVIEW_REQUEST,
     NEW_REVIEW_SUCCESS,
     NEW_REVIEW_RESET,
@@ -48,6 +53,54 @@ export const vehicleDetailsReducer = (state = { vehicle: {} }, action) => {
     }
 }
 
+
+// Delete Vehicle Reducer
+
+export const vehicleReducer = (state = {}, action) => {
+    switch (action.type) {
+
+        
+        case DELETE_VEHICLE_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+
+        
+
+        case DELETE_VEHICLE_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                isDeleted: action.payload
+            }
+
+        
+
+        case DELETE_VEHICLE_RESET:
+            return {
+                ...state,
+                isDeleted: false
+            }
+
+        
+        case DELETE_VEHICLE_FAIL:
+            return {
+                ...state,
+                // loading: false,
+                error: action.payload
+            }
+
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }
+
+        default:
+            return state;
+    }
+}
 
 
 export const newVehicleReviewReducer = (state = {}, action) => {

@@ -9,15 +9,15 @@ import { newPack, clearErrors } from '../../actions/packageActions'
 import { NEW_PACK_RESET } from '../../constants/packageConstants'
 
 const NewPackage = ({ history }) => {
-  const [numberofmarla, setNumberofmarla] = useState(0);
-    const [estimatedsquarefoot, setEstimatedsquarefoot] = useState(0);
-    const [cement, setCement] = useState(0);
-    const [sand, setSand] = useState(0);
-    const [aggregate, setAggregate] = useState(0);
-    const [steel, setSteel] = useState(0);
-    const [finishers, setFinishers] = useState(0);
-    const [fittings, setFittings] = useState(0);
-    const [totalprice, setTotalprice] = useState(0);
+  const [numberofmarla, setNumberofmarla] = useState('');
+    const [estimatedsquarefoot, setEstimatedsquarefoot] = useState('');
+    const [cement, setCement] = useState('');
+    const [sand, setSand] = useState('');
+    const [aggregate, setAggregate] = useState('');
+    const [steel, setSteel] = useState('');
+    const [finishers, setFinishers] = useState('');
+    const [fittings, setFittings] = useState('');
+    const [totalprice, setTotalprice] = useState('');
     const [images, setImages] = useState([]);
     const [imagesPreview, setImagesPreview] = useState([])
 
@@ -106,8 +106,11 @@ const NewPackage = ({ history }) => {
             <div className="form-group">
             <label htmlFor="price_field">No of Marla</label>
                                     <input
-                                        type="text"
+                                        type="number"
                                         id="price_field"
+                                        min="1"
+                                        max="1000000000000"
+                                        required
                                         className="form-control"
                                         value={numberofmarla}
                                         onChange={(e) => setNumberofmarla(e.target.value)}
@@ -117,7 +120,10 @@ const NewPackage = ({ history }) => {
                                 <div className="form-group">
                                     <label htmlFor="price_field">Estimated Square Foot</label>
                                     <input
-                                        type="text"
+                                        type="number"
+                                        min="1"
+                                        max="1000000000000"
+                                        required
                                         id="price_field"
                                         className="form-control"
                                         value={estimatedsquarefoot}
@@ -129,7 +135,10 @@ const NewPackage = ({ history }) => {
                                 <div className="form-group">
                                     <label htmlFor="price_field">Price of Cement (16.4%)</label>
                                     <input
-                                        type="text"
+                                       type="number"
+                                       min="1"
+                                       max="1000000"
+                                       required
                                         id="price_field"
                                         className="form-control"
                                         value={cement}
@@ -140,7 +149,10 @@ const NewPackage = ({ history }) => {
                                 <div className="form-group">
                                     <label htmlFor="price_field">Price of Sand (12.3 %)</label>
                                     <input
-                                        type="text"
+                                       type="number"
+                                       min="1"
+                                       max="1000000"
+                                       required
                                         id="price_field"
                                         className="form-control"
                                         value={sand}
@@ -150,7 +162,10 @@ const NewPackage = ({ history }) => {
                                 <div className="form-group">
                                     <label htmlFor="price_field">Price of Aggregate (7.4 %)</label>
                                     <input
-                                        type="text"
+                                        type="number"
+                                        min="1"
+                                        max="1000000"
+                                        required
                                         id="price_field"
                                         className="form-control"
                                         value={aggregate}
@@ -161,7 +176,10 @@ const NewPackage = ({ history }) => {
               <div className="form-group">
                                     <label htmlFor="price_field">Price of Steel (24.6 %)</label>
                                     <input
-                                        type="text"
+                                        type="number"
+                                        min="1"
+                                        max="1000000"
+                                        required
                                         id="price_field"
                                         className="form-control"
                                         value={steel}
@@ -171,7 +189,10 @@ const NewPackage = ({ history }) => {
                                 <div className="form-group">
                                     <label htmlFor="price_field">Price of Finishers (16.5 %)=(Paint (4.1 %) + Tiles (8.0 %) + Bricks (4.4 %))</label>
                                     <input
-                                        type="text"
+                                        type="number"
+                                        min="1"
+                                        max="1000000"
+                                        required
                                         id="price_field"
                                         className="form-control"
                                         value={finishers}
@@ -181,7 +202,10 @@ const NewPackage = ({ history }) => {
                                 <div className="form-group">
                                     <label htmlFor="price_field">Price of Fittings (22.8 %)=(Window (3.0 %) + Doors (3.4 %) + Plumbing (5.5 %) + Eletrical (6.8 %) + Sanitary (4.1 %))</label>
                                     <input
-                                        type="text"
+                                       type="number"
+                                       min="1"
+                                       max="1000000"
+                                       required
                                         id="price_field"
                                         className="form-control"
                                         value={fittings}
@@ -193,8 +217,12 @@ const NewPackage = ({ history }) => {
                                 <div className="form-group">
                                     <label htmlFor="price_field">Total price</label>
                                     <input
-                                        type="text"
+                                        type="number"
+                                        min="1"
+                                        max="1000000"
+                                        required
                                         id="price_field"
+                                        
                                         className="form-control"
                                         value={totalprice}
                                         onChange={(e) => setTotalprice(e.target.value)}
@@ -212,6 +240,8 @@ const NewPackage = ({ history }) => {
                                             className='custom-file-input'
                                             id='customFile'
                                             onChange={onChange}
+                                            required
+                                            accept="image/png, image/jpg, image/jpeg"
                                             multiple
                                         />
                                         <label className='custom-file-label' htmlFor='customFile'>
@@ -230,7 +260,7 @@ const NewPackage = ({ history }) => {
                                     id="login_button"
                                     type="submit"
                                     className="btn btn-block py-3"
-                                    disabled={loading ? true : false}
+                                    //disabled={loading ? true : false}
                                 >
                                     CREATE
                                 </button>

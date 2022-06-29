@@ -83,6 +83,10 @@ const UpdateProfile = ({ history }) => {
                             <label htmlFor="email_field">Name</label>
                             <input
                                 type="name"
+                                minlength="5"
+                                maxLength="40"
+                                required
+                                pattern='[a-zA-Z][a-zA-Z ]+[a-zA-Z]$'
                                 id="name_field"
                                 className="form-control"
                                 name='name'
@@ -95,6 +99,9 @@ const UpdateProfile = ({ history }) => {
                             <label htmlFor="email_field">Email</label>
                             <input
                                 type="email"
+                                required
+                                title="Contact's email (format: xxx@xxx.xxx)" 
+                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,}$"
                                 id="email_field"
                                 className="form-control"
                                 name='email'

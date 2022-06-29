@@ -13,8 +13,8 @@ const ConfirmOrder = ({ history }) => {
     const { user } = useSelector(state => state.auth)
      // Calculate Order Prices
      const itemsPrice = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)
-     const shippingPrice = itemsPrice > 200 ? 0 : 25
-     const taxPrice = Number((0.05 * itemsPrice).toFixed(2))
+     const shippingPrice = itemsPrice > 800 ? 0 : 25
+     const taxPrice = Number((0.03 * itemsPrice).toFixed(2))
      const totalPrice = (itemsPrice + shippingPrice + taxPrice).toFixed(2)
 
     const [couponCode, setCouponCode] = useState("");
@@ -93,7 +93,7 @@ const ConfirmOrder = ({ history }) => {
 
 
                                     <div className="col-4 col-lg-4 mt-4 mt-lg-0">
-                                        <p>{item.quantity} x ${item.price} = <b>${(item.quantity * item.price).toFixed(2)}</b></p>
+                                        <p>{item.quantity} x Rs.{item.price} = <b>Rs.{(item.quantity * item.price).toFixed(2)}</b></p>
                                     </div>
 
                                 </div>
@@ -110,18 +110,18 @@ const ConfirmOrder = ({ history }) => {
                     <div id="order_summary">
                         <h4>Order Summary</h4>
                         <hr />
-                        <p>Subtotal:  <span className="order-summary-values">${itemsPrice}</span></p>
-                        <p>Shipping: <span className="order-summary-values">${shippingPrice}</span></p>
-                        <p>Tax:  <span className="order-summary-values">${taxPrice}</span></p>
+                        <p>Subtotal:  <span className="order-summary-values">Rs.{itemsPrice}</span></p>
+                        <p>Shipping: <span className="order-summary-values">Rs.{shippingPrice}</span></p>
+                        <p>Tax:  <span className="order-summary-values">Rs.{taxPrice}</span></p>
                         {
-                            discount? <p>Coupon Discount:  <span className="order-summary-values">-${totalPrice*(discount/100)}</span></p>: null
+                            discount? <p>Coupon Discount:  <span className="order-summary-values">Rs.{totalPrice*(discount/100)}</span></p>: null
                         }
                         <input placeholder='Enter Coupon Code' value={couponCode} onChange={(e)=>{setCouponCode(e.target.value)}}/>
                         <button id="checkout_btn" className="btn btn-primary btn-block" onClick={(e)=>{applyCoupon(e)}}>Apply Coupon</button>
                         <p><span >{msg}</span></p>
                         <hr />
 
-                        <p style={{ marginTop: "10px"}}>Total: <span className="order-summary-values">${total}</span></p>
+                        <p style={{ marginTop: "10px"}}>Total: <span className="order-summary-values">Rs.{total}</span></p>
 
                         <hr />
                         <button id="checkout_btn" className="btn btn-primary btn-block" onClick={processToPayment}>Proceed to Payment</button>

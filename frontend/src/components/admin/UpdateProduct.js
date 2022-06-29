@@ -16,7 +16,7 @@ const UpdateProduct = ({ match, history }) => {
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
     const [stock, setStock] = useState(0);
-    const [seller, setSeller] = useState('');
+    // const [seller, setSeller] = useState('');
     const [images, setImages] = useState([]);
 
     const [oldImages, setOldImages] = useState([]);
@@ -54,7 +54,7 @@ const UpdateProduct = ({ match, history }) => {
             setPrice(product.price);
             setDescription(product.description);
             setCategory(product.category);
-            setSeller(product.seller);
+            // setSeller(product.seller);
             setStock(product.stock)
             setOldImages(product.images)
         }
@@ -88,7 +88,7 @@ const UpdateProduct = ({ match, history }) => {
         formData.set('description', description);
         formData.set('category', category);
         formData.set('stock', stock);
-        formData.set('seller', seller);
+        // formData.set('seller', seller);
 
         images.forEach(image => {
             formData.append('images', image)
@@ -138,6 +138,10 @@ const UpdateProduct = ({ match, history }) => {
                                     <label htmlFor="name_field">Name</label>
                                     <input
                                         type="text"
+                                        minlength="5"
+                                        maxLength="40"
+                                        required
+                                        pattern='[a-zA-Z][a-zA-Z ]+[a-zA-Z]$'
                                         id="name_field"
                                         className="form-control"
                                         value={name}
@@ -148,7 +152,10 @@ const UpdateProduct = ({ match, history }) => {
                                 <div className="form-group">
                                     <label htmlFor="price_field">Price</label>
                                     <input
-                                        type="text"
+                                        type="number"
+                                        min="1"
+                                        max="1000000"
+                                        required
                                         id="price_field"
                                         className="form-control"
                                         value={price}
@@ -158,12 +165,12 @@ const UpdateProduct = ({ match, history }) => {
 
                                 <div className="form-group">
                                     <label htmlFor="description_field">Description</label>
-                                    <textarea className="form-control" id="description_field" rows="8" value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
+                                    <textarea className="form-control" id="description_field" required rows="8" value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
                                 </div>
 
                                 <div className="form-group">
                                     <label htmlFor="category_field">Category</label>
-                                    <select className="form-control" id="category_field" value={category} onChange={(e) => setCategory(e.target.value)}>
+                                    <select className="form-control" id="category_field" required value={category} onChange={(e) => setCategory(e.target.value)}>
                                         {categories.map(category => (
                                             <option key={category} value={category} >{category}</option>
                                         ))}
@@ -174,6 +181,9 @@ const UpdateProduct = ({ match, history }) => {
                                     <label htmlFor="stock_field">Stock</label>
                                     <input
                                         type="number"
+                                        min="1"
+                                        max="1000000"
+                                        required
                                         id="stock_field"
                                         className="form-control"
                                         value={stock}
@@ -181,7 +191,7 @@ const UpdateProduct = ({ match, history }) => {
                                     />
                                 </div>
 
-                                <div className="form-group">
+                                {/* <div className="form-group">
                                     <label htmlFor="seller_field">Seller Name</label>
                                     <input
                                         type="text"
@@ -190,7 +200,7 @@ const UpdateProduct = ({ match, history }) => {
                                         value={seller}
                                         onChange={(e) => setSeller(e.target.value)}
                                     />
-                                </div>
+                                </div> */}
 
                                 <div className='form-group'>
                                     <label>Images</label>
@@ -198,6 +208,8 @@ const UpdateProduct = ({ match, history }) => {
                                     <div className='custom-file'>
                                         <input
                                             type='file'
+                                            
+                                            accept="image/png, image/jpg, image/jpeg"
                                             name='product_images'
                                             className='custom-file-input'
                                             id='customFile'
@@ -224,7 +236,7 @@ const UpdateProduct = ({ match, history }) => {
                                     id="login_button"
                                     type="submit"
                                     className="btn btn-block py-3"
-                                    disabled={loading ? true : false}
+                                   // disabled={loading ? true : false}
                                 >
                                     UPDATE
                             </button>

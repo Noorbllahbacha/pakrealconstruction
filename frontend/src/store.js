@@ -15,11 +15,11 @@ import  { videosReducer, newVideoReducer, videoReducer, videoDetailsReducer,
 
   import { complainsReducer,complainReducer} from './reducers/complainReducers'
  
-  import {vehicleDetailsReducer,newVehicleReviewReducer,vehicleReviewsReducer, vehiclereviewReducer} from './reducers/vehicleReducers'
-  import {laborDetailsReducer,newLaborReviewReducer,laborReviewsReducer, laborreviewReducer} from './reducers/laborReducers'
+  import {vehicleDetailsReducer,newVehicleReviewReducer,vehicleReviewsReducer, vehiclereviewReducer,vehicleReducer} from './reducers/vehicleReducers'
+  import {laborDetailsReducer,newLaborReviewReducer,laborReviewsReducer, laborreviewReducer,laborReducer,laborsReducer} from './reducers/laborReducers'
 
   import { newOrderReducer, myOrdersReducer, orderDetailsReducer, allOrdersReducer, orderReducer } from './reducers/orderReducers'
-
+  // import {  laborReducer } from './reducers/laborReducers'
 const reducer = combineReducers({
   products: productsReducer,
   productDetails: productDetailsReducer,
@@ -69,13 +69,15 @@ const reducer = combineReducers({
   newVehicleReview:newVehicleReviewReducer,
   vehicleReviews:vehicleReviewsReducer,
   vehicleReview:vehiclereviewReducer,
-
+  vehicle: vehicleReducer,
 
   laborDetails :laborDetailsReducer,
   newLaborReview:newLaborReviewReducer,
   laborReviews:laborReviewsReducer,
   laborReview:laborreviewReducer,
-  
+  labor: laborReducer,
+  labors:laborsReducer,
+
   newVideoReview:newVideoReviewReducer,
   videoReviews:videoReviewsReducer,
   videoReview:videoreviewReducer

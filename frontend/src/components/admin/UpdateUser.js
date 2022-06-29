@@ -79,7 +79,11 @@ const UpdateUser = ({ history, match }) => {
                                 <div className="form-group">
                                     <label htmlFor="name_field">Name</label>
                                     <input
-                                        type="name"
+                                       type="text"
+                                       minlength="5"
+                                       maxLength="40"
+                                       required
+                                       pattern='[a-zA-Z][a-zA-Z ]+[a-zA-Z]$' 
                                         id="name_field"
                                         className="form-control"
                                         name='name'
@@ -92,6 +96,10 @@ const UpdateUser = ({ history, match }) => {
                                     <label htmlFor="email_field">Email</label>
                                     <input
                                         type="email"
+                                        required
+                                        title="Contact's email (format: xxx@xxx.xxx)" 
+                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,}$"
+                                        placeholder="Contact's email" 
                                         id="email_field"
                                         className="form-control"
                                         name='email'
@@ -105,6 +113,7 @@ const UpdateUser = ({ history, match }) => {
 
                                     <select
                                         id="role_field"
+                                        required
                                         className="form-control"
                                         name='role'
                                         value={role}

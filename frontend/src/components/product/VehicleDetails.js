@@ -136,7 +136,7 @@ console.log(dispatch(getVehicleDetails(match.params.id)))
 
                         <div className="col-12 col-lg-5 mt-5">
                             {/* <h3>{vehicle.numberofmarla}</h3> */}
-                            <p id="product_id">Vehicle # {vehicle._id}</p>
+                            <p id="product_id"><b>Vehicle #</b> {vehicle._id}</p>
 
                             <hr />
 
@@ -162,12 +162,17 @@ console.log(dispatch(getVehicleDetails(match.params.id)))
 
                             <p>Status: <span id="stock_status" className={vehicle.stock > 0 ? 'greenColor' : 'redColor'} >{vehicle.stock > 0 ? 'In Stock' : 'Out of Stock'}</span></p> */}
 
-                            <hr />
-
                             <h4 className="mt-2">Description:</h4>
-                            {/* <p>{vehicle.totalprice}</p>
-                            <hr />
-                            <p id="product_seller mb-3">Sold by: <strong>{vehicle.totalprice}</strong></p> */}
+                             <p>{vehicle.engineNo}</p>
+                             <h4 className="mt-2">Contact Info:</h4>
+
+                            <label>Provide Services in :&#160;{vehicle.ownerCity}</label>
+                            <br></br>
+                            <label>Phone# : &nbsp;{vehicle.color}</label>
+                            <br></br>
+                            <label><b>Email@ : &nbsp;</b><b>info.pakrealconstruction@gmail.com</b></label>
+                           <hr/>
+                            {/* <p id="product_seller mb-3">Sold by: <strong>{vehicle.totalprice}</strong></p> */} 
 
                             {user ? <button id="review_btn" type="button" className="btn btn-primary mt-4"
                              data-toggle="modal" data-target="#ratingModal" onClick={setUserRatings}>

@@ -1,7 +1,3 @@
-
-
-
-
 import React, { Fragment, useState, useEffect } from 'react'
 
 import MetaData from '../layout/MetaData'
@@ -14,13 +10,11 @@ import { UPDATE_VIDEO_RESET } from '../../constants/videoConstants'
 
 const UpdateVideo = ({match,history}) => {
 
- 
   const [name, setName] = useState('');
    const [numOfDays, setNumOfDays] = useState(0);
    const [projStartDate, setProjStartDate] = useState('');
   const [description, setDescription] = useState('');
-  // const [category, setCategory] = useState('');
-  // const [stock, setStock] = useState(0);
+  
 
   const [clips, setClips] = useState([]);
   const [oldClips, setOldClips] = useState([]);
@@ -42,8 +36,7 @@ const UpdateVideo = ({match,history}) => {
             setName(video.name);
             setNumOfDays(video.numOfDays);
             setDescription(video.description);
-            // setCategory(video.category);
-            // setSeller(product.seller);
+           
             setProjStartDate(video.projStartDate)
             setOldClips(video.clips)
         }
@@ -60,7 +53,7 @@ const UpdateVideo = ({match,history}) => {
 
 
         if (isUpdated) {
-            history.push('/admin/videos');
+            history.push('/admin/vedeos');
             alert.success('Video updated successfully');
             dispatch({ type: UPDATE_VIDEO_RESET })
         }
@@ -79,7 +72,7 @@ const UpdateVideo = ({match,history}) => {
         // formData.set('category', category);
         
         // formData.set('seller', seller);
-
+// formData.set('clips',clips)
         clips.forEach(clip => {
             formData.append('clips', clip)
         })
@@ -108,126 +101,8 @@ const UpdateVideo = ({match,history}) => {
             reader.readAsDataURL(file)
         })
     }
+ 
 
-
-  //   return (
-  //     <Fragment>
-  //         <MetaData title={'Update Video'} />
-  //         <div className="row">
-  //             <div className="col-12 col-md-2">
-  //                 <Sidebar />
-  //             </div>
-
-  //             <div className="col-12 col-md-10">
-  //                 <Fragment>
-  //                     <div className="wrapper my-5">
-  //                         <form className="shadow-lg" onSubmit={submitHandler} encType='multipart/form-data'>
-  //                             <h1 className="mb-4">Update Video</h1>
-
-  //                             <div className="form-group">
-  //                                 <label htmlFor="name_field">Name</label>
-  //                                 <input
-  //                                     type="text"
-  //                                     id="name_field"
-  //                                     className="form-control"
-  //                                     value={name}
-  //                                     onChange={(e) => setName(e.target.value)}
-  //                                 />
-  //                             </div>
-
-  //                             <div className="form-group">
-  //                                 <label htmlFor="price_field">Price</label>
-  //                                 <input
-  //                                     type="text"
-  //                                     id="price_field"
-  //                                     className="form-control"
-  //                                     value={price}
-  //                                     onChange={(e) => setPrice(e.target.value)}
-  //                                 />
-  //                             </div>
-
-  //                             <div className="form-group">
-  //                                 <label htmlFor="description_field">Description</label>
-  //                                 <textarea className="form-control" id="description_field" rows="8" 
-  // value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
-  //                             </div>
-
-  //                             <div className="form-group">
-  //                                 <label htmlFor="category_field">Category</label>
-  //                                 <select className="form-control" id="category_field" value={category} onChange={(e) => setCategory(e.target.value)}>
-  //                                     {categories.map(category => (
-  //                                         <option key={category} value={category} >{category}</option>
-  //                                     ))}
-
-  //                                 </select>
-  //                             </div>
-  //                             <div className="form-group">
-  //                                 <label htmlFor="stock_field">Stock</label>
-  //                                 <input
-  //                                     type="number"
-  //                                     id="stock_field"
-  //                                     className="form-control"
-  //                                     value={stock}
-  //                                     onChange={(e) => setStock(e.target.value)}
-  //                                 />
-  //                             </div>
-
-  //                             <div className="form-group">
-  //                                 <label htmlFor="seller_field">Seller Name</label>
-  //                                 <input
-  //                                     type="text"
-  //                                     id="seller_field"
-  //                                     className="form-control"
-  //                                     value={seller}
-  //                                     onChange={(e) => setSeller(e.target.value)}
-  //                                 />
-  //                             </div>
-
-  //                             <div className='form-group'>
-  //                                 <label>Images</label>
-
-  //                                 <div className='custom-file'>
-  //                                     <input
-  //                                         type='file'
-  //                                         name='product_images'
-  //                                         className='custom-file-input'
-  //                                         id='customFile'
-  //                                         onChange={onChange}
-  //                                         multiple
-  //                                     />
-  //                                     <label className='custom-file-label' htmlFor='customFile'>
-  //                                         Choose Images
-  //                              </label>
-  //                                 </div>
-
-  //                                 {oldImages && oldImages.map(img => (
-  //                                     <img key={img} src={img.url} alt={img.url} className="mt-3 mr-2" width="55" height="52" />
-  //                                 ))}
-
-  //                                 {imagesPreview.map(img => (
-  //                                     <img src={img} key={img} alt="Images Preview" className="mt-3 mr-2" width="55" height="52" />
-  //                                 ))}
-
-  //                             </div>
-
-
-  //                             <button
-  //                                 id="login_button"
-  //                                 type="submit"
-  //                                 className="btn btn-block py-3"
-  //                                 disabled={loading ? true : false}
-  //                             >
-  //                                 UPDATE
-  //                         </button>
-
-  //                         </form>
-  //                     </div>
-  //                 </Fragment>
-  //             </div>
-  //         </div>
-
-  //     </Fragment>
-  // )
   return (
     <Fragment>
     <MetaData title={'Update Video'} />
@@ -243,27 +118,36 @@ const UpdateVideo = ({match,history}) => {
     <h1 className="mb-4">Update video</h1>
     <div className="form-group">
       <label htmlFor="name_field">Project Title</label>
-      <input type="text" id="name_field" className="form-control"  
+      <input type="text"
+                 minlength="5"
+                 maxLength="40"
+                 required
+                 pattern='[a-zA-Z][a-zA-Z ]+[a-zA-Z]$' id="name_field" className="form-control"  
         value={name}
            onChange={(e) => setName(e.target.value)}
       />
     </div>
     <div className="form-group">
       <label htmlFor="price_field">Number of days</label>
-      <input type="text" id="price_field" className="form-control" 
+      <input  type="number"
+                  min="1"
+                  max="1000000"
+                  required id="price_field" className="form-control" 
       value={numOfDays}
       onChange={(e) => setNumOfDays(e.target.value)} />
     </div>
     <div className="form-group">
       <label htmlFor="stock_field">Project Start Date</label>
-      <input type="text" id="stock_field" className="form-control" 
+      <input type="date"
+                  min="2000-04-01" max="2022-06-28" 
+                  required id="stock_field" className="form-control" 
       value={projStartDate}
                      onChange={(e) => setProjStartDate(e.target.value)}
        />
     </div>
     <div className="form-group">
       <label htmlFor="description_field">Description</label>
-      <textarea className="form-control" id="description_field" rows={8} defaultValue={""}
+      <textarea className="form-control" required  id="description_field" rows={8} defaultValue={""}
       value={description} onChange={(e) => setDescription(e.target.value)} />
     </div>
     {/* <div className="form-group">
@@ -282,6 +166,8 @@ const UpdateVideo = ({match,history}) => {
                     <div class='custom-file'>
                         <input
                             type='file'
+                            
+                            accept="video/mp4,video/x-m4v,video/*"
                             name='product_images'
                             class='custom-file-input'
                             id='customFile'
@@ -294,7 +180,8 @@ const UpdateVideo = ({match,history}) => {
                     </div>
                     {oldClips && oldClips.map(clip => (
                                         <video width="55" height="52" controls>
-                                    <source src={clip} key={clip} type="video/mp4" /> 
+                                    {/* <source src={videos} key={clip} type="video/mp4" />  */}
+                                    <source src={video.clips[0].url} type="video/mp4" />
                                     </video>   
                                     ))}
                     {clipsPreview.map(clip => (
@@ -303,6 +190,8 @@ const UpdateVideo = ({match,history}) => {
                                     <source src={clip} key={clip} type="video/mp4" /> 
                                     </video>
                                     ))}
+
+                                    
 
             </div>
     <button id="login_button" type="submit" className="btn btn-block py-3">

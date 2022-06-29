@@ -4,6 +4,11 @@ import {VEHICLE_REGISTOR_REQUEST,
     VEHICLE_DETAILS_REQUEST,
     VEHICLE_DETAILS_SUCCESS,
     VEHICLE_DETAILS_FAIL,
+
+    DELETE_VEHICLE_REQUEST,
+    DELETE_VEHICLE_SUCCESS,
+    DELETE_VEHICLE_FAIL,
+
     NEW_REVIEW_REQUEST,
     NEW_REVIEW_SUCCESS,
     NEW_REVIEW_FAIL,
@@ -47,7 +52,7 @@ export const getVehicleDetails = (id) => async (dispatch) => {
 
         dispatch({ type: VEHICLE_DETAILS_REQUEST })
 
-        const { data } = await axios.get(`https://pakrealconstruction.herokuapp.com/api/v1/vehicled/${id}`)
+        const { data } = await axios.get(`https://pakrealconstruction.herokuapp.com/api/v1/vehicle/${id}`)
 
         dispatch({
             type: VEHICLE_DETAILS_SUCCESS,
@@ -57,6 +62,26 @@ export const getVehicleDetails = (id) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: VEHICLE_DETAILS_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
+
+export const deleteVehicle=(id)=>async(dispatch)=>
+{
+    try{
+
+        dispatch({ type: DELETE_VEHICLE_REQUEST })
+
+        const { data } = await axios.delete(`https://pakrealconstruction.herokuapp.com/api/v1/admin/vehicle/${id}`)
+
+        dispatch({
+            type: DELETE_VEHICLE_SUCCESS,
+            payload: data.success
+        })
+    }catch (error) {
+        dispatch({
+            type: DELETE_VEHICLE_FAIL,
             payload: error.response.data.message
         })
     }

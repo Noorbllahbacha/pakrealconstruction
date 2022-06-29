@@ -365,8 +365,8 @@ const PackageDetails = ({ match }) => {
                         </div>
 
                         <div className="col-12 col-lg-5 mt-5">
-                            <h3>{pack.numberofmarla}</h3>
-                            <p id="product_id">Package # {pack._id}</p>
+                            <h3><b>{pack.numberofmarla} Marla</b></h3>
+                            <p id="product_id"><b>Package #</b> {pack._id}</p>
 
                             <hr />
 
@@ -375,7 +375,6 @@ const PackageDetails = ({ match }) => {
                             </div>
                             <span id="no_of_reviews">({pack.numOfReviews} Reviews)</span>
 
-                            <hr />
 
                             {/* <p id="product_price">${pack.totalprice}</p>
                             <div className="stockCounter d-inline">
@@ -393,7 +392,25 @@ const PackageDetails = ({ match }) => {
 
                             <hr /> */}
 
+                           
                             <h4 className="mt-2">Description:</h4>
+                            
+                             <p>This project package is about {pack.numberofmarla} marla house with 13x14 room size with attach washrooms ,15x8 Laundry, 5x8 kitchen ,20x13 TV Launch and car parking area.The remaing free space can use for garden.</p>
+                             <label><b>Estimated Square Foot: &nbsp; &nbsp;</b>{pack.estimatedsquarefoot}</label><br></br>
+                             <label><b>Total Estimated Cost: &nbsp; &nbsp; </b> {pack.totalprice}</label><br></br>
+                             <p><b>This cost include:</b></p>
+                             <label>Price of Cement :  &#160; &#160;{pack.cement}</label>
+                             <label>Price of Sand   : &#160; &nbsp; &nbsp;{pack.sand}</label>
+                             <label>Price of Aggregate : &#160; &nbsp;{pack.aggregate}</label>
+                             <label>Price of Steel  :&nbsp; &#160;{pack.steel}</label>
+                             <label>Price of Finishers (Paint,Tiles, Bricks):&nbsp;{pack.finishers}</label>
+                             <label>Price of Fittings ( Window, Doors,Plumbing,Eletrical,Sanitary) : &#160; &#160;{pack.fittings}</label>
+                             <h4 className="mt-2">Contact Info:</h4>
+                            
+                            <label><b>Phone# &nbsp; &nbsp; </b>051-536356434</label>
+                            <br></br>
+                            <label><b>Email@ :&nbsp; &nbsp;</b>info.pakrealconstruction@gmail.com</label>
+                           <hr/>
                             {/* <p>{pack.totalprice}</p> */}
                             {/* <hr />
                             <p id="product_seller mb-3">Sold by: <strong>{pack.totalprice}</strong></p> */}

@@ -1,22 +1,49 @@
+
+
+
 import React, { Fragment, useEffect, useState } from "react";
 import MetaData from "../layout/MetaData";
+
+import { MDBDataTable } from 'mdbreact';
 import Sidebar from "./Sidebar";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useAlert } from 'react-alert';
+import { useDispatch, useSelector } from 'react-redux'
+import {  deleteLabor, clearErrors } from '../../actions/laborActions';
+import { DELETE_LABOR_RESET } from '../../constants/laborConstants'
+const LaborsList = ({history}) => {
 
-const LaborsList = () => {
+  const alert = useAlert();
+    const dispatch = useDispatch();
+
   const [labourData, setLabourData] = useState([]);
-
+  const { error: deleteError, isDeleted } = useSelector(state => state.labor)
   useEffect(() => {
+
     axios
       .get("https://pakrealconstruction.herokuapp.com/api/v1/admin/labors")
       .then((response) => {
         if (response.data.success) setLabourData(response.data.labors);
+
+        if (isDeleted) {
+          alert.success('Labor deleted successfully');
+          history.push('/admin/labors');
+          dispatch({ type: DELETE_LABOR_RESET })
+      }
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+
+      
+
+  }, [alert, isDeleted, history]);
+
+const deleteLaborHandler = (id) => {
+  dispatch(deleteLabor(id))
+}
+
 
   return (
     <Fragment>
@@ -51,6 +78,7 @@ const LaborsList = () => {
                   Search:
                   <input
                     type="search"
+                    
                     className
                     placeholder
                     aria-controls="example"
@@ -73,10 +101,15 @@ const LaborsList = () => {
                       <th>Action</th>
                     </tr>
                   </thead>
+                  
                   <tbody>
+                  
                     {labourData?.map((labor) => {
+                      
                       return (
+                        
                         <tr key={labor._id}>
+                        
                           <td data-label="S.No">{labor._id}</td>
                           <td data-label="Name">{labor.name}</td>
                           <td data-label="Age">{labor.cnic}</td>
@@ -86,7 +119,12 @@ const LaborsList = () => {
                             <Link to={`/admin/updatelabor/${labor._id}`}>
                               <i className="fa fa-pencil"></i>{" "}
                             </Link>{" "}
-                            <i className="fa fa-trash"></i>{" "}
+                            
+                            
+                            <button className="btn btn-danger py-1 px-2 ml-2" onClick={() => deleteLaborHandler(labor._id)}>
+                        <i className="fa fa-trash"></i>
+                    </button>
+                           
                           </td>
                         </tr>
                       );

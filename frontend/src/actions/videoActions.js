@@ -39,19 +39,11 @@ export const getVideos = (keyword = '', currentPage = 1,numOfDays, rating = 0) =
 
         dispatch({ type: ALL_VIDEOS_REQUEST })
 
-        // let link = `/api/v1/videos?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&
-        // price[gte]=${price[0]}&ratings[gte]=${rating}`
-        // let link = `/api/v1/videos?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}`
-
-        // let link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&
-        // price[gte]=${price[0]}&ratings[gte]=${rating}`
+       
 
         let link = `https://pakrealconstruction.herokuapp.com/api/v1/videos?keyword=${keyword}&page=${currentPage}&numOfDays[lte]=${numOfDays[1]}&
         numOfDays[gte]=${numOfDays[0]}&ratings[gte]=${rating}`
-        // if (category) {
-        //     link = `/api/v1/videos?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}`
-        // }
-
+        
         const { data } = await axios.get(link)
 
         dispatch({

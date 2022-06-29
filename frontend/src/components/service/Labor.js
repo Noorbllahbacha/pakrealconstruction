@@ -1,11 +1,13 @@
 import React, { Fragment, useState, useEffect } from "react";
 import MetaData from "../layout/MetaData";
 import axios from "axios";
+import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import {newLabor} from '../../actions/laborActions'
 import {LABOR_REGISTOR_REQUEST} from '../../constants/laborConstants'
 
 const Labor = () => {
+  const alert = useAlert();
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     name: "",
@@ -97,7 +99,12 @@ const Labor = () => {
                   <div className="form-group">
                     <label for="name_field">Name</label>
                     <input
-                      type="text"
+                     // type="text"
+                     type="text"
+                      minlength="5"
+                      maxLength="40"
+                      required
+                      pattern='[a-zA-Z][a-zA-Z ]+[a-zA-Z]$'
                       id="name_field"
                       className="form-control"
                       value={formData.name}
@@ -110,6 +117,8 @@ const Labor = () => {
                     <label for="name_field">Date of Birth</label>
                     <input
                       type="date"
+                      min="1980-04-01" max="2005-06-28" 
+                      required
                       id="name_field"
                       className="form-control"
                       value={formData.dob}
@@ -121,7 +130,9 @@ const Labor = () => {
                   <div className="form-group">
                     <label for="name_field">CNIC</label>
                     <input
-                      type="text"
+                       type="number"
+                       min='100000000000000'
+                       pattern="[0-9]{13}" required
                       id="name_field"
                       className="form-control"
                       value={formData.cinc}
@@ -135,6 +146,7 @@ const Labor = () => {
                     <label for="description_field">Work Description</label>
                     <textarea
                       className="form-control"
+                      required
                       id="description_field"
                       rows="2"
                       value={formData.workDescription}
@@ -164,10 +176,12 @@ const Labor = () => {
                   <div className="form-group">
                     <label for="stock_field">Contact Number</label>
                     <input
-                      type="tel"
+                      type="number"
+                      required
+                      min='1000000000000'
                       id="stock_field"
                       className="form-control"
-                      pattern="[0-9]{4}-[0-9]{7}"
+                      pattern="[0-9]{11}"
                       onChange={(e) => {
                         setFormData({
                           ...formData,
@@ -180,8 +194,13 @@ const Labor = () => {
                   <div className="form-group">
                     <label for="seller_field">Labor Area</label>
                     <input
-                      type="text"
+                     type="text"
+                     minlength="5"
+                     maxLength="40"
+                     required
+                     pattern='[a-zA-Z][a-zA-Z ]+[a-zA-Z]$'
                       id="seller_field"
+                      
                       className="form-control"
                       value={formData.laborArea}
                       onChange={(e) => {
@@ -196,6 +215,8 @@ const Labor = () => {
                     <div className="custom-file">
                       <input
                         type="file"
+                        required
+                        accept="image/png, image/jpg, image/jpeg"
                         name="product_images"
                         className="custom-file-input"
                         id="customFile"
@@ -208,14 +229,18 @@ const Labor = () => {
                         Choose Images
                       </label>
                     </div>
+
+                    
                   </div>
 
                   <button
                     id="login_button"
                     type="submit"
                     class="btn btn-block py-2"
+                    
                     onClick={(e) => {
                       registerLabour(e);
+                      alert.success("Your Request has gone to Admin")
                     }}
                   >
                     Register

@@ -17,11 +17,14 @@ const Header = () => {
     console.log(user)
     const { cartItems } = useSelector(state => state.cart)
 
+   
+
     const logoutHandler = () => {
         dispatch(logout());
         alert.success('Logged out successfully.')
     }
 
+    
 
 
   return (
@@ -56,15 +59,15 @@ const Header = () => {
                         </Link>
       </li>
       <li className="nav-item">
-      <Link to="/video" style={{ textDecoration: 'none' }}>
-                        <span id="calculator" className="ml-3">Video</span>
+      <Link to="/productdisplay" style={{ textDecoration: 'none' }}>
+                        <span id="calculator" className="ml-3">Product</span>
                         </Link>
         
       </li>
 
       <li className="nav-item">
-      <Link to="/package" style={{ textDecoration: 'none' }}>
-                        <span id="calculator" className="ml-3">Package</span>
+      <Link to="/complain" style={{ textDecoration: 'none' }} >
+                        <span id="calculator" className="ml-3" >Complaint</span>
                         </Link>
         
       </li>
@@ -105,9 +108,7 @@ const Header = () => {
                                 {user && user.role === 'admin' && (
                                     <Link className="dropdown-item" to="/dashboard">Dashboard</Link>
                                 )}
-                                {user && user.role === 'superAdmin' && (
-                                    <Link className="dropdown-item" to="/package">Package</Link>
-                                )}
+                               
                                 <Link className="dropdown-item" to="/orders/me">Orders</Link>
                                 <Link className="dropdown-item" to="/me">Profile</Link>
                                 <Link className="dropdown-item text-danger" to="/" onClick={logoutHandler}>

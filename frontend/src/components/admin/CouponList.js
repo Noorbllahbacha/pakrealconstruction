@@ -3,16 +3,22 @@ import MetaData from "../layout/MetaData";
 import Sidebar from "./Sidebar";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useAlert } from 'react-alert'
+
+
 const CouponList = () => {
   const [couponData, setCouponData] = useState([]);
-
+  const alert = useAlert();
   const deleteCoupon = (e, id) => {
     e.preventDefault();
     console.log("handle delete id:", id);
+    
+
     axios
       .delete(`https://pakrealconstruction.herokuapp.com/api/v1/admin/coupon/${id}`)
       .then((response) => {
         if (response.data.success) console.log("coupon deleted sucessfully");
+        alert.success('Coupon deleted successfully');
       })
       .catch((error) => {
         console.log(error);
@@ -21,7 +27,7 @@ const CouponList = () => {
 
   useEffect(() => {
     axios
-      .get("https://pakrealconstruction.herokuapp.com/api/v1/coupons")
+      .get("http://localhost:4000/api/v1/coupons")
       .then((response) => {
         if (response.data.success) setCouponData(response.data.coupons);
       })

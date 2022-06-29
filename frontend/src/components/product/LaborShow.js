@@ -98,7 +98,7 @@ const LaborShow = () => {
       <img src={labour.images[0].url}  className="card-img-top mx-auto" />
       <div className="card-body d-flex flex-column">
       <h5 className="card-title">
-        <Link to={`/labour/${labour._id}`}>{labour.type}</Link>
+        <Link to={`/labord/${labour._id}`}>{labour.type}</Link>
       </h5>
       <div className="ratings mt-auto">
         <div className="rating-outer">

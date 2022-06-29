@@ -1,183 +1,3 @@
-// import React, {Fragment} from 'react'
-// import { Link } from 'react-router-dom'
-
-
-// const Calculator = () => {
-//   return (
-   
-//     <Fragment>
-//     <h1 className="my-4">Estimation Calculator</h1>
-//     <div className="row" >
-    
-//       <div className="col-sm-12 col-md-6 col-lg-3 my-3">
-      
-//       <div className="card p-3 rounded">
-//         <Link to="">
-//         <i id="Calculator-icon" class="fa fa-calculator"  aria-hidden="true"></i>
-//         </Link>
-//         <div className="card-body d-flex flex-column">
-//           <h5 className="card-title ml-3">
-//             <Link to="/constructioncost">Construction Cost </Link>
-//           </h5>
-//         </div>
-//       </div>
-//     </div>
-
-//     <div className="col-sm-12 col-md-6 col-lg-3 my-3">
-//     <div className="card p-3 rounded">
-//         <Link to="">
-//         <i id="Calculator-icon" class="fa fa-calculator"  aria-hidden="true"></i>
-//         </Link>
-//         <div className="card-body d-flex flex-column">
-//           <h5 className="card-title ml-3">
-//             <Link to="/cementconcrete">Cement Concrete </Link>
-//           </h5>
-         
-//         </div>
-//       </div>
-//     </div>
-
-//     {/* <div className="col-sm-12 col-md-6 col-lg-3 my-3">
-//     <div className="card p-3 rounded">
-//         <Link to="">
-//         <i id="Calculator-icon" class="fa fa-calculator"  aria-hidden="true"></i>
-//         </Link>
-//         <div className="card-body d-flex flex-column">
-//           <h5 className="card-title ml-3">
-//             <Link to="/brick">Brick Masonry </Link>
-//           </h5>
-         
-//         </div>
-//       </div>
-//     </div> */}
-
-//     {/* <div className="col-sm-12 col-md-6 col-lg-3 my-3">
-//     <div className="card p-3 rounded">
-//         <Link to="">
-//         <i id="Calculator-icon" class="fa fa-calculator"  aria-hidden="true"></i>
-//         </Link>
-//         <div className="card-body d-flex flex-column">
-//           <h5 className="card-title ml-3">
-//             <Link to="/concreteblock">Concrete  Block</Link>
-//           </h5>
-
-//         </div>
-//       </div>
-//     </div> */}
-
-//     {/* <div className="col-sm-12 col-md-6 col-lg-3 my-3">
-//     <div className="card p-3 rounded">
-//         <Link to="">
-//         <i id="Calculator-icon" class="fa fa-calculator"  aria-hidden="true"></i>
-//         </Link>
-//         <div className="card-body d-flex flex-column">
-//           <h5 className="card-title ml-3">
-//             <Link to="/roundcolumn">Round Column</Link>
-//           </h5>
-          
-//         </div>
-//       </div>
-//     </div> */}
-//     {/* <div className="col-sm-12 col-md-6 col-lg-3 my-3">
-//     <div className="card p-3 rounded">
-//         <Link to="">
-//         <i id="Calculator-icon" class="fa fa-calculator"  aria-hidden="true"></i>
-//         </Link>
-//         <div className="card-body d-flex flex-column">
-//           <h5 className="card-title ml-3">
-//             <Link to="/paint">Paint Work</Link>
-//           </h5>
-          
-//         </div>
-//       </div>
-//     </div> */}
-//     <div className="col-sm-12 col-md-6 col-lg-3 my-3">
-//     <div className="card p-3 rounded">
-//         <Link to="">
-//         <i id="Calculator-icon" class="fa fa-calculator"  aria-hidden="true"></i>
-//         </Link>
-//         <div className="card-body d-flex flex-column">
-//           <h5 className="card-title ml-3">
-//             <Link to="/steel">Steel Quantity</Link>
-//           </h5>
-          
-//         </div>
-//       </div>
-//     </div>
-//     {/* <div className="col-sm-12 col-md-6 col-lg-3 my-3">
-//     <div className="card p-3 rounded">
-//         <Link to="">
-//         <i id="Calculator-icon" class="fa fa-calculator"  aria-hidden="true"></i>
-//         </Link>
-//         <div className="card-body d-flex flex-column">
-//           <h5 className="card-title ml-3">
-//             <Link to="/stair">Stair Case</Link>
-//           </h5>
-//         </div>
-//       </div>
-//     </div> */}
-
-
-//     {/* <div className="col-sm-12 col-md-6 col-lg-3 my-3">
-//     <div className="card p-3 rounded">
-//         <Link to="">
-//         <i id="Calculator-icon" class="fa fa-calculator"  aria-hidden="true"></i>
-//         </Link>
-//         <div className="card-body d-flex flex-column">
-//           <h5 className="card-title ml-3">
-//             <Link to="/concretetube">Concrete Tube</Link>
-//           </h5>
-//         </div>
-//       </div>
-//     </div> */}
-
-//     <div className="col-sm-12 col-md-6 col-lg-3 my-3">
-//     <div className="card p-3 rounded">
-//         <Link to="">
-//         <i id="Calculator-icon" class="fa fa-calculator"  aria-hidden="true"></i>
-//         </Link>
-//         <div className="card-body d-flex flex-column">
-//           <h5 className="card-title ml-5">
-//             <Link to="/plaster">Plaster</Link>
-//           </h5>
-//         </div>
-//       </div>
-//     </div>
-
-//     {/* <div className="col-sm-12 col-md-6 col-lg-3 my-3">
-//     <div className="card p-3 rounded">
-//         <Link to="">
-//         <i id="Calculator-icon" class="fa fa-calculator"  aria-hidden="true"></i>
-//         </Link>
-//         <div className="card-body d-flex flex-column">
-//           <h5 className="card-title ml-5">
-//             <Link to="/flooring">Flooring</Link>
-//           </h5>
-//         </div>
-//       </div>
-//     </div> */}
-
-
-
-
-//                 </div>
-               
-
-
-            
-
-//         </Fragment>
-      
-        
-
-
-      
-//   )
-// }
-
-// export default Calculator
-
-
 import React, {Fragment} from 'react'
 import { Link } from 'react-router-dom'
 
@@ -186,17 +6,17 @@ const Calculator = () => {
   return (
    
     <Fragment>
-    <h1 className="my-4">Estimation Calculator</h1>
+    <h1 className="my-5">Estimation Calculator</h1>
     <div className="row" >
     
       <div className="col-sm-12 col-md-6 col-lg-3 my-3">
       
       <div className="card p-3 rounded">
-        <Link to="">
-        <i id="Calculator-icon" class="fa fa-calculator"  aria-hidden="true"></i>
+        <Link to="/constructioncost">
+        <img src="images/concc.jpg"  alt className="img-fluid h-95" id="vehicleReg" />
         </Link>
         <div className="card-body d-flex flex-column">
-          <h5 className="card-title ml-3">
+          <h5 className="card-title text-center">
             <Link to="/constructioncost">Construction Cost </Link>
           </h5>
         </div>
@@ -205,11 +25,11 @@ const Calculator = () => {
 
     <div className="col-sm-12 col-md-6 col-lg-3 my-3">
     <div className="card p-3 rounded">
-        <Link to="">
-        <i id="Calculator-icon" class="fa fa-calculator"  aria-hidden="true"></i>
+        <Link to="/cementconcrete">
+        <img src="images/cementc.jpg"  alt className="img-fluid" id="vehicleReg" />
         </Link>
         <div className="card-body d-flex flex-column">
-          <h5 className="card-title ml-3">
+          <h5 className="card-title text-center">
             <Link to="/cementconcrete">Cement Concrete </Link>
           </h5>
          
@@ -217,125 +37,41 @@ const Calculator = () => {
       </div>
     </div>
 
-    {/* <div className="col-sm-12 col-md-6 col-lg-3 my-3">
-    <div className="card p-3 rounded">
-        <Link to="">
-        <i id="Calculator-icon" class="fa fa-calculator"  aria-hidden="true"></i>
-        </Link>
-        <div className="card-body d-flex flex-column">
-          <h5 className="card-title ml-3">
-            <Link to="/brick">Brick Masonry </Link>
-          </h5>
-         
-        </div>
-      </div>
-    </div> */}
+  
 
-    {/* <div className="col-sm-12 col-md-6 col-lg-3 my-3">
-    <div className="card p-3 rounded">
-        <Link to="">
-        <i id="Calculator-icon" class="fa fa-calculator"  aria-hidden="true"></i>
-        </Link>
-        <div className="card-body d-flex flex-column">
-          <h5 className="card-title ml-3">
-            <Link to="/concreteblock">Concrete  Block</Link>
-          </h5>
+   
 
-        </div>
-      </div>
-    </div> */}
 
-    {/* <div className="col-sm-12 col-md-6 col-lg-3 my-3">
-    <div className="card p-3 rounded">
-        <Link to="">
-        <i id="Calculator-icon" class="fa fa-calculator"  aria-hidden="true"></i>
-        </Link>
-        <div className="card-body d-flex flex-column">
-          <h5 className="card-title ml-3">
-            <Link to="/roundcolumn">Round Column</Link>
-          </h5>
-          
-        </div>
-      </div>
-    </div> */}
-    {/* <div className="col-sm-12 col-md-6 col-lg-3 my-3">
-    <div className="card p-3 rounded">
-        <Link to="">
-        <i id="Calculator-icon" class="fa fa-calculator"  aria-hidden="true"></i>
-        </Link>
-        <div className="card-body d-flex flex-column">
-          <h5 className="card-title ml-3">
-            <Link to="/paint">Paint Work</Link>
-          </h5>
-          
-        </div>
-      </div>
-    </div> */}
+ 
     <div className="col-sm-12 col-md-6 col-lg-3 my-3">
     <div className="card p-3 rounded">
-        <Link to="">
-        <i id="Calculator-icon" class="fa fa-calculator"  aria-hidden="true"></i>
+        <Link to="/steel">
+        <img src="images/steelcc.jpg"  alt className="img-fluid" id="vehicleReg" />
         </Link>
         <div className="card-body d-flex flex-column">
-          <h5 className="card-title ml-3">
+          <h5 className="card-title text-center">
             <Link to="/steel">Steel Quantity</Link>
           </h5>
           
         </div>
       </div>
     </div>
-    {/* <div className="col-sm-12 col-md-6 col-lg-3 my-3">
-    <div className="card p-3 rounded">
-        <Link to="">
-        <i id="Calculator-icon" class="fa fa-calculator"  aria-hidden="true"></i>
-        </Link>
-        <div className="card-body d-flex flex-column">
-          <h5 className="card-title ml-3">
-            <Link to="/stair">Stair Case</Link>
-          </h5>
-        </div>
-      </div>
-    </div> */}
-
-
-    {/* <div className="col-sm-12 col-md-6 col-lg-3 my-3">
-    <div className="card p-3 rounded">
-        <Link to="">
-        <i id="Calculator-icon" class="fa fa-calculator"  aria-hidden="true"></i>
-        </Link>
-        <div className="card-body d-flex flex-column">
-          <h5 className="card-title ml-3">
-            <Link to="/concretetube">Concrete Tube</Link>
-          </h5>
-        </div>
-      </div>
-    </div> */}
+ 
 
     <div className="col-sm-12 col-md-6 col-lg-3 my-3">
     <div className="card p-3 rounded">
-        <Link to="">
-        <i id="Calculator-icon" class="fa fa-calculator"  aria-hidden="true"></i>
+        <Link to="/plaster">
+        <img src="images/plaster.jpg"  alt className="img-fluid" id="vehicleReg" />
         </Link>
         <div className="card-body d-flex flex-column">
-          <h5 className="card-title ml-5">
+          <h5 className="card-title text-center">
             <Link to="/plaster">Plaster</Link>
           </h5>
         </div>
       </div>
     </div>
 
-    {/* <div className="col-sm-12 col-md-6 col-lg-3 my-3">
-    <div className="card p-3 rounded">
-        <Link to="">
-        <i id="Calculator-icon" class="fa fa-calculator"  aria-hidden="true"></i>
-        </Link>
-        <div className="card-body d-flex flex-column">
-          <h5 className="card-title ml-5">
-            <Link to="/flooring">Flooring</Link>
-          </h5>
-        </div>
-      </div>
-    </div> */}
+  
 
 
 

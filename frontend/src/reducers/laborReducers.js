@@ -6,6 +6,17 @@ import {
     NEW_REVIEW_SUCCESS,
     NEW_REVIEW_RESET,
     NEW_REVIEW_FAIL,
+
+
+    DELETE_LABOR_REQUEST,
+    DELETE_LABOR_SUCCESS,
+    DELETE_LABOR_FAIL,
+    DELETE_LABOR_RESET,
+
+    ADMIN_LABOR_REQUEST,
+    ADMIN_LABOR_SUCCESS,
+    ADMIN_LABOR_FAIL,
+
     GET_REVIEWS_REQUEST,
     GET_REVIEWS_SUCCESS,
     GET_REVIEWS_FAIL,
@@ -15,6 +26,39 @@ import {
     DELETE_REVIEW_FAIL,
     CLEAR_ERRORS
 } from '../constants/laborConstants';
+
+export const laborsReducer = (state = { labors: [] }, action) => {
+    switch (action.type) {
+        
+        case ADMIN_LABOR_REQUEST:
+            return {
+                loading: true,
+                labors: []
+            }
+        
+        case ADMIN_LABOR_SUCCESS:
+            return {
+                loading: false,
+                labors: action.payload
+            }
+
+        case ADMIN_LABOR_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
+
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }
+
+        default:
+            return state;
+    }
+}
+
 
 export const laborDetailsReducer = (state = { labor: {} }, action) => {
     switch (action.type) {
@@ -85,6 +129,56 @@ export const newLaborReviewReducer = (state = {}, action) => {
 
         default:
             return state
+    }
+}
+
+
+
+// Delete Complain Reducer
+
+export const laborReducer = (state = {}, action) => {
+    switch (action.type) {
+
+        
+        case DELETE_LABOR_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+
+        
+
+        case DELETE_LABOR_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                isDeleted: action.payload
+            }
+
+        
+
+        case DELETE_LABOR_RESET:
+            return {
+                ...state,
+                isDeleted: false
+            }
+
+        
+        case DELETE_LABOR_FAIL:
+            return {
+                ...state,
+                // loading: false,
+                error: action.payload
+            }
+
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }
+
+        default:
+            return state;
     }
 }
 

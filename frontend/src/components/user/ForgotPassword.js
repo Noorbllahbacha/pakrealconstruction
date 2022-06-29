@@ -48,7 +48,10 @@ const ForgotPassword = () => {
                         <div className="form-group">
                             <label htmlFor="email_field">Enter Email</label>
                             <input
-                                type="email"
+                               type="email"
+                               required
+                               title="Contact's email (format: xxx@xxx.xxx)" 
+                               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,}$"
                                 id="email_field"
                                 className="form-control"
                                 value={email}

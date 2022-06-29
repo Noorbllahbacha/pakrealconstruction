@@ -107,7 +107,7 @@ const Package = () => {
         </div>
         <span id="no_of_reviews">({pack.numOfReviews} Reviews)</span>
       </div>
-      <p className="card-text">{pack.totalprice}</p>
+      <p className="card-text">Rs.{pack.totalprice}</p>
       <Link to={`/pack/${pack._id}`} id="view_btn" className="btn btn-block ">View Details</Link>
     </div>
     </div>

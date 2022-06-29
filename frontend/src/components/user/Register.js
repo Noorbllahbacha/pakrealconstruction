@@ -27,7 +27,7 @@ const Register = ({ history }) => {
     useEffect(() => {
 
         if (isAuthenticated) {
-            history.push('/')
+            history.push('/login')
         }
 
         if (error) {
@@ -81,7 +81,11 @@ const Register = ({ history }) => {
                         <div className="form-group">
                             <label htmlFor="email_field">Name</label>
                             <input
-                                type="name"
+                               type="name"
+                                minlength="5"
+                                maxLength="40"
+                                required
+                                pattern='[a-zA-Z][a-zA-Z ]+[a-zA-Z]$'
                                 id="name_field"
                                 className="form-control"
                                 name='name'
@@ -94,6 +98,9 @@ const Register = ({ history }) => {
                             <label htmlFor="email_field">Email</label>
                             <input
                                 type="email"
+                                required
+                                title="Contact's email (format: xxx@xxx.xxx)" 
+                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,}$"
                                 id="email_field"
                                 className="form-control"
                                 name='email'
@@ -106,6 +113,7 @@ const Register = ({ history }) => {
                             <label htmlFor="password_field">Password</label>
                             <input
                                 type="password"
+                                required
                                 id="password_field"
                                 className="form-control"
                                 name='password'
@@ -132,7 +140,8 @@ const Register = ({ history }) => {
                                         name='avatar'
                                         className='custom-file-input'
                                         id='customFile'
-                                        accept="iamges/*"
+                                        required
+                                         accept="image/png, image/jpg, image/jpeg"
                                         onChange={onChange}
                                     />
                                     <label className='custom-file-label' htmlFor='customFile'>
@@ -146,7 +155,7 @@ const Register = ({ history }) => {
                             id="register_button"
                             type="submit"
                             className="btn btn-block py-3"
-                            disabled={loading ? true : false}
+                           // disabled={loading ? true : false}
                         >
                             REGISTER
                         </button>

@@ -136,7 +136,7 @@ console.log(dispatch(getLaborDetails(match.params.id)))
 
                         <div className="col-12 col-lg-5 mt-5">
                             {/* <h3>{labor.numberofmarla}</h3> */}
-                            <p id="product_id">labor # {labor._id}</p>
+                            <p id="product_id"><b>labor # </b> {labor._id}</p>
 
                             <hr />
 
@@ -162,9 +162,20 @@ console.log(dispatch(getLaborDetails(match.params.id)))
 
                             <p>Status: <span id="stock_status" className={labor.stock > 0 ? 'greenColor' : 'redColor'} >{labor.stock > 0 ? 'In Stock' : 'Out of Stock'}</span></p> */}
 
-                            <hr />
+                            
 
-                            <h4 className="mt-2">Description:</h4>
+                            <h4 className="mt-2 " >Description:</h4>
+                            <p >{labor.description}</p>
+                            <hr />
+                            <h4 className="mt-2">Contact Info:</h4>
+                            <label>Phone# :&#160;{labor.contactNumber}</label>
+                            <br></br>
+                            <label>Email@ :&#160; info.pakrealconstruction@gmail.com</label><br></br>
+                             {/* <label>Woring Area :<p>{labor.labourArea}</p></label><br></br> */}
+                            {/* <label>Reviews About :<p>{labor.reviews}</p></label>  */}
+                            
+                            <hr />
+                            
                             {/* <p>{labor.totalprice}</p>
                             <hr />
                             <p id="product_seller mb-3">Sold by: <strong>{labor.totalprice}</strong></p> */}

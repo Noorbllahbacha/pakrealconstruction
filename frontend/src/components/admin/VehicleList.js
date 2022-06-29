@@ -3,21 +3,37 @@ import MetaData from "../layout/MetaData";
 import Sidebar from "./Sidebar";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
-const VehicleList = () => {
+import { useAlert } from 'react-alert';
+import { useDispatch, useSelector } from 'react-redux';
+import {  deleteVehicle, clearErrors } from '../../actions/vehicleActions';
+import { DELETE_VEHICLE_RESET } from '../../constants/vehicleConstants'
+const VehicleList = ({history}) => {
+  const alert = useAlert();
+    const dispatch = useDispatch();
   const [vehicleData, setVehicleData] = useState([]);
+
+  const { error: deleteError, isDeleted } = useSelector(state => state.vehicle)
 
   useEffect(() => {
     axios
       .get("https://pakrealconstruction.herokuapp.com/api/v1/admin/vehicles")
       .then((response) => {
         if (response.data.success) setVehicleData(response.data.vehicles);
+
+        if (isDeleted) {
+          alert.success('Vehicle deleted successfully');
+          history.push('/admin/vehicles');
+          dispatch({ type: DELETE_VEHICLE_RESET })
+      }
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [alert, isDeleted, history]);
 
+  const deleteVehicleHandler = (id) => {
+    dispatch(deleteVehicle(id))
+  }
   return (
     <Fragment>
       <MetaData title={"Vehicle List"} />
@@ -69,7 +85,7 @@ const VehicleList = () => {
                       <th>Vehicle ID</th>
                       <th>Vehicle Name</th>
                       <th>Owner</th>
-                      <th>Engine No</th>
+                      <th>Registration Date</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -80,13 +96,16 @@ const VehicleList = () => {
                           <td data-label="S.No">{vehicle._id}</td>
                           <td data-label="Name">{vehicle.name}</td>
                           <td data-label="Age">{vehicle.ownerName}</td>
-                          <td data-label="Marks%">{vehicle.engineNo}</td>
+                          <td data-label="Marks%">{vehicle.regDate}</td>
                           <td data-label="Staus">
                             {" "}
                             <Link to={`/admin/updatevehicle/${vehicle._id}`}>
                               <i className="fa fa-pencil"></i>{" "}
                             </Link>{" "}
-                            <i className="fa fa-trash"></i>{" "}
+                            <button className="btn btn-danger py-1 px-2 ml-2" onClick={() => deleteVehicleHandler(vehicle._id)}>
+                        <i className="fa fa-trash"></i>
+                    </button>
+                            {/* <i className="fa fa-trash"></i>{" "} */}
                           </td>
                         </tr>
                       );

@@ -109,7 +109,7 @@ const Payment = ({ history }) => {
 
                     dispatch(createOrder(order))
                     dispatch(removeItemFromCart(result.paymentIntent.id))
-                    history.push("/ordersuccess");
+                    history.push("/success");
                 } else {
                     alert.error('There is some issue while payment processing')
                 }
