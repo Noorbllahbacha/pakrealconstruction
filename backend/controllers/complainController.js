@@ -18,7 +18,6 @@ const catchAsyncErrors = require('../middlewares/catchAsyncErrors');
 // })
 
 
-
 exports.newComplain = catchAsyncErrors(async (req, res, next) => {
 
   const {name,email,phone,complaint} =req.body;

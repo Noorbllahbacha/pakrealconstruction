@@ -314,7 +314,7 @@ exports.newPack = catchAsyncErrors(async (req, res, next) => {
 
 //Get all packs => /api/v1/packs
 exports.getPacks = catchAsyncErrors (async (req,res, next) =>{
-    const resPerPage=4;
+    const resPerPage=8;
     const packsCount = await Pack.countDocuments();
   
     const apiFeatures = new APIFeatures(Pack.find(), req.query)

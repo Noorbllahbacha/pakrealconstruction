@@ -17,7 +17,7 @@ const { isAuthenticatedUser, authorizeRoles } = require("../middlewares/auth");
 
 router.route("/vehicles").get(getVehicles);
 router.route("/admin/vehicles").get(getAdminVehicles);
-router.route("/vehicled/:id").get(getSingleVehicle);
+router.route("/vehicle/:id").get(getSingleVehicle);
 
 router.route("/vehicle/new").post(newVehicle);
 

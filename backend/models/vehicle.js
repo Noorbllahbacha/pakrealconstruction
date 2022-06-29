@@ -12,7 +12,7 @@ const vehicleSchema = new mongoose.Schema({
     required: [true, "Please enter Registration  Number"],
   },
   engineNo: {
-    type: Number,
+    type: String,
     required: [true, "Please enter Engine Number"],
   },
   regDate: {
